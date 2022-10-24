@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1D70D2</color>
+
+    <color name="colorPrimaryDark">#1D70D2</color>
+
+    <color name="colorPrimaryDarkDisabled">#801D70D2</color>
+
+    <color name="colorAccent">#1D71D3</color>
+
+    <color name="layout_background_color">#FAFAFA</color>
+
+    <color name="white">#fff</color>
+
+    <color name="black">#303030</color>
+
+    <color name="red">#F46363</color>
+
+    <color name="gray">#D6D6D6</color>
+
+    <color name="light_gray">#E5E5E5</color>
+
+    <color name="mid_gray">#502F302F</color>
+
+    <color name="grayish">#707070</color>
+
+    <color name="light_navy">#1D6ED0</color>
+
+    <color name="navy">#1B5BB3</color>
+
+    <color name="blue">#1E6ACD</color>
+
+    <color name="light_blue">#52CFFC</color>
+
+    <color name="green">#47CB71</color>
+
+    <color name="yellow">#F4D52A</color>
+
+    <color name="map_big_zone">#73FFFB7B</color>
+
+    <color name="map_small_zone">#4D47CB71</color>
+
+    <color name="field_title">#1D71D3</color>
+
+    <color name="bg_baby_blue">#ECF6FF</color>
+
+    <color name="bg_gray">#7C7C7C</color>
+
+    <color name="txt_bg_gray">#848484</color>
+
+    <color name="txt_color_blue">#1A7FE1</color>
+
+    <color name="txt_color_gray">#636363</color>
+
+    <color name="bg_view_disable">#90ffffff</color>
+
+    <color name="dark_grey">#575757</color>
+
+</resources>

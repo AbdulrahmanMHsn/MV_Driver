@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signUpFragment">
+    <fragment
+        android:id="@+id/marketRequestFragment"
+        android:name="com.seamlabs.mvpdriver.marketRequests.MarketRequestFragment"
+        android:label="fragment_market_request"
+        tools:layout="@layout/fragment_market_request" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.seamlabs.mvpdriver.authentication.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/myDealsFragment"
+        android:name="com.seamlabs.mvpdriver.myDeal.MyDealsFragment"
+        android:label="fragment_my_deals"
+        tools:layout="@layout/fragment_my_deals" />
+    <fragment
+        android:id="@+id/successfullySubmittedOfferFragment"
+        android:name="com.seamlabs.mvpdriver.marketRequests.SuccessfullySubmittedOfferFragment"
+        android:label="fragment_successfully_submitted_offer"
+        tools:layout="@layout/fragment_successfully_submitted_offer" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.seamlabs.mvpdriver.notifications.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.seamlabs.mvpdriver.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/completeProfileDriverFragment"
+        android:name="com.seamlabs.mvpdriver.authentication.CompleteProfileDriverFragment"
+        android:label="fragment_complete_profile_driver"
+        tools:layout="@layout/fragment_complete_profile_driver" />
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.seamlabs.mvpdriver.authentication.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/chooseUserTypeFragment"
+        android:name="com.seamlabs.mvpdriver.authentication.ChooseUserTypeFragment"
+        android:label="fragment_choose_user_type"
+        tools:layout="@layout/fragment_choose_user_type" />
+    <fragment
+        android:id="@+id/completeProfileCompanyFragment"
+        android:name="com.seamlabs.mvpdriver.authentication.CompleteProfileCompanyFragment"
+        android:label="CompleteProfileCompanyFragment" />
+</navigation>

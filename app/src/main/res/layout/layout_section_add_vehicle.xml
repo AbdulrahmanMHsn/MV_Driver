@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/space_5x"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        android:layout_marginHorizontal="@dimen/space_3x"/>
+
+    <TextView
+        android:id="@+id/txt_title_card_brand"
+        style="@style/field_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_5x"
+        android:text="@string/card_brand"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_line" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edTxt_car_brand"
+        style="@style/App_EditTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:layout_marginEnd="@dimen/space_3.5x"
+        android:background="@drawable/bg_white_with_border_gray"
+        android:inputType="textPersonName"
+        android:nextFocusDown="@id/password_login"
+        android:paddingHorizontal="@dimen/space_3x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_title_card_brand"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/txt_title_card_model"
+        style="@style/field_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:text="@string/card_model"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edTxt_car_brand" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edTxt_car_model"
+        style="@style/App_EditTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:layout_marginEnd="@dimen/space_3.5x"
+        android:background="@drawable/bg_white_with_border_gray"
+        android:inputType="textPersonName"
+        android:nextFocusDown="@id/password_login"
+        android:paddingHorizontal="@dimen/space_3x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_title_card_model"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/txt_title_manufacturing_year"
+        style="@style/field_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:text="@string/manufacturing_year"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edTxt_car_model" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edTxt_car_manufacturing_year"
+        style="@style/App_EditTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:layout_marginEnd="@dimen/space_3.5x"
+        android:background="@drawable/bg_white_with_border_gray"
+        android:inputType="textPersonName"
+        android:nextFocusDown="@id/password_login"
+        android:paddingHorizontal="@dimen/space_3x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_title_manufacturing_year"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/txt_title_images"
+        style="@style/field_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:text="@string/images"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edTxt_car_manufacturing_year" />
+
+    <ImageView
+        android:id="@+id/btn_add_images"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_65sdp"
+        android:layout_marginStart="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:layout_marginEnd="@dimen/space_3.5x"
+        android:background="@drawable/bg_white_with_border_gray"
+        android:paddingHorizontal="@dimen/space_3x"
+        android:src="@drawable/ic_circle_add"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_title_images"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/txt_title_areas"
+        style="@style/field_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_3.5x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:text="@string/area"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_add_images" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

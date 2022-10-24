@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_submit_offer">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/head_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_head_dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/txt_header_dialog"
+            style="@style/font_lato_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_3.5x"
+            android:text="@string/need_ride_to_my_son_at_monday_late_ride"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/font_lato_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_3.5x"
+            tools:text="100 sar"
+            android:textSize="@dimen/_18ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ImageView
+        android:id="@+id/img_home_request"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="@dimen/space_3.5x"
+        android:layout_marginTop="@dimen/space_3x"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_home_request"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head_dialog" />
+
+
+    <TextView
+        android:id="@+id/txt_title_location_home"
+        style="@style/font_lato_bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_2x"
+        android:layout_marginTop="-4dp"
+        android:singleLine="true"
+        tools:text="Almohammadiyah"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/txt_date_start_request"
+        app:layout_constraintStart_toEndOf="@+id/img_home_request"
+        app:layout_constraintTop_toTopOf="@+id/img_home_request" />
+
+
+    <TextView
+        android:id="@+id/txt_desc_location_home"
+        style="@style/font_lato_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_2x"
+        android:layout_marginTop="@dimen/space_1x"
+        android:layout_marginBottom="-4dp"
+        android:singleLine="true"
+        tools:text="Mohammadiyah district"
+        android:textColor="#A9A9A9"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_home_request"
+        app:layout_constraintStart_toEndOf="@+id/img_home_request"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_location_home" />
+
+
+    <TextView
+        android:id="@+id/txt_date_start_request"
+        style="@style/font_lato_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_3.5x"
+        android:drawablePadding="@dimen/space_2x"
+        android:gravity="center"
+        tools:text="2:00 PM"
+        android:textSize="12sp"
+        app:drawableStartCompat="@drawable/ic_clock_request"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_title_location_home" />
+
+    <ImageView
+        android:id="@+id/img_arrow_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2x"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_arrow_up"
+        app:layout_constraintEnd_toEndOf="@+id/img_home_request"
+        app:layout_constraintStart_toStartOf="@+id/img_home_request"
+        app:layout_constraintTop_toBottomOf="@+id/img_home_request" />
+
+
+    <ImageView
+        android:id="@+id/img_location_request"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="@dimen/space_3.5x"
+        android:layout_marginTop="@dimen/space_2x"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_location_request"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_arrow_request" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_date_end_request"
+        style="@style/font_lato_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/space_3.5x"
+        android:drawablePadding="@dimen/space_2x"
+        android:gravity="center"
+        android:textSize="@dimen/_9ssp"
+        app:drawableStartCompat="@drawable/ic_clock_request"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_title_location"
+        tools:text="3:00 PM" />
+
+    <TextView
+        android:id="@+id/txt_title_location"
+        style="@style/font_lato_bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_2x"
+        android:layout_marginTop="-4dp"
+        android:singleLine="true"
+        tools:text="Alandalus school "
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/txt_date_end_request"
+        app:layout_constraintStart_toEndOf="@+id/img_location_request"
+        app:layout_constraintTop_toTopOf="@+id/img_location_request" />
+
+
+    <TextView
+        android:id="@+id/txt_desc_location"
+        style="@style/font_lato_regular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_2x"
+        android:layout_marginTop="@dimen/space_1x"
+        android:layout_marginBottom="-4dp"
+        android:singleLine="true"
+        tools:text="Abasatin district"
+        android:textAlignment="viewStart"
+        android:textColor="#A9A9A9"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_location_request"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_location_request"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_location" />
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="@dimen/space_3.5x"
+        android:layout_marginTop="12dp"
+        android:background="#F5F8FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_desc_location" />
+
+    <TextView
+        android:id="@+id/txt_title_noOf_trips"
+        style="@style/font_lato_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        android:text="@string/no_of_trips"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+    <TextView
+        android:id="@+id/txt_noOf_trips"
+        style="@style/font_lato_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        tools:text="2 Trips"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+    <TextView
+        android:id="@+id/txt_title_distance_trips"
+        style="@style/font_lato_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        android:text="@string/distance_trip"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_noOf_trips" />
+
+    <TextView
+        android:id="@+id/txt_distance_trips"
+        style="@style/font_lato_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        tools:text="1.5 KM"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_noOf_trips" />
+
+    <TextView
+        android:id="@+id/txt_title_noOf_students"
+        style="@style/font_lato_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        android:text="@string/no_of_students"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_distance_trips" />
+
+    <TextView
+        android:id="@+id/txt_noOf_students"
+        style="@style/font_lato_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        tools:text="2 Students"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_distance_trips" />
+
+
+    <TextView
+        android:id="@+id/txt_title_type_trip"
+        style="@style/font_lato_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        android:text="@string/type_of_trip"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_noOf_students" />
+
+
+    <TextView
+        android:id="@+id/txt_type_trip"
+        style="@style/font_lato_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        tools:text="Personal driver"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_noOf_students" />
+
+
+    <TextView
+        android:id="@+id/txt_title_type_vehicle"
+        style="@style/font_lato_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        android:text="@string/type_of_trip"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_type_trip" />
+
+
+    <TextView
+        android:id="@+id/txt_type_vehicle"
+        style="@style/font_lato_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_3.5x"
+        tools:text="Personal driver"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title_type_trip" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_call"
+        style="@style/font_lato_bold"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/space_6x"
+        android:layout_marginTop="@dimen/space_6x"
+        android:layout_marginEnd="@dimen/space_6x"
+        android:layout_marginBottom="@dimen/space_6x"
+        android:background="@drawable/bg_blue"
+        android:text="@string/call"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_type_vehicle" />
+
+
+    <!--    <LinearLayout-->
+<!--        android:id="@+id/layout_btn_action"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_type_trip">-->
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/btn_discard"-->
+<!--            style="@style/font_lato_bold"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="46dp"-->
+<!--            android:layout_marginStart="@dimen/space_3.5x"-->
+<!--            android:layout_marginTop="@dimen/space_6x"-->
+<!--            android:layout_marginEnd="@dimen/space_2x"-->
+<!--            android:layout_marginBottom="@dimen/space_6x"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/bg_white_border_blue"-->
+<!--            android:text="@string/edit"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            android:textSize="20sp"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txt_type_trip" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/btn_call"-->
+<!--            style="@style/font_lato_bold"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="46dp"-->
+<!--            android:layout_marginStart="@dimen/space_2x"-->
+<!--            android:layout_marginTop="@dimen/space_6x"-->
+<!--            android:layout_marginEnd="@dimen/space_3.5x"-->
+<!--            android:layout_marginBottom="@dimen/space_6x"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/bg_blue"-->
+<!--            android:text="@string/call"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20sp"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txt_type_trip" />-->
+
+<!--    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

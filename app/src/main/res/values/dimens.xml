@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="space_0_5x">@dimen/_1sdp</dimen>
+    <dimen name="space_1x">@dimen/_2sdp</dimen>
+    <dimen name="space_2x">@dimen/_4sdp</dimen>
+    <dimen name="space_2.5x">@dimen/_6sdp</dimen>
+    <dimen name="space_3x">@dimen/_10sdp</dimen>
+    <dimen name="space_3.5x">@dimen/_12sdp</dimen>
+    <dimen name="space_4x">@dimen/_14sdp</dimen>
+    <dimen name="space_4.5x">@dimen/_16sdp</dimen>
+    <dimen name="space_5x">@dimen/_18sdp</dimen>
+    <dimen name="space_6x">@dimen/_20sdp</dimen>
+    <dimen name="space_7x">@dimen/_24sdp</dimen>
+    <dimen name="space_8x">@dimen/_28sdp</dimen>
+    <dimen name="space_9x">@dimen/_30sdp</dimen>
+    <dimen name="space_10x">@dimen/_30sdp</dimen>
+    <dimen name="space_11x">@dimen/_40sdp</dimen>
+    <dimen name="space_12x">@dimen/_45sdp</dimen>
+    <dimen name="space_15x">@dimen/_55sdp</dimen>
+    <dimen name="space_16x">@dimen/_60sdp</dimen>
+    <dimen name="space_20x">@dimen/_70sdp</dimen>
+    <dimen name="space_30x">@dimen/_100sdp</dimen>
+    <dimen name="space_40x">@dimen/_120sdp</dimen>
+    <dimen name="space_45x">@dimen/_160sdp</dimen>
+    <dimen name="space_50x">@dimen/_180sdp</dimen>
+    <dimen name="space_55x">@dimen/_200sdp</dimen>
+    <dimen name="space_62x">@dimen/_235sdp</dimen>
+
+
+    <dimen name="app_bar_height">@dimen/_45sdp</dimen>
+</resources>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/space_3.5x"
+    android:layout_marginTop="@dimen/space_3.5x"
+    android:elevation="@dimen/space_2x"
+    app:cardCornerRadius="@dimen/_8sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_white">
+
+
+        <TextView
+            android:id="@+id/txt_msg_request"
+            style="@style/font_lato_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_3.5x"
+            android:singleLine="true"
+            android:text="@string/need_ride_for_my_student"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_status_request"
+            style="@style/font_lato_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_3.5x"
+            android:background="@drawable/bg_status_deal"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="#50D0A7"
+            android:text="@string/offer_submitted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/txt_date_request"
+            style="@style/font_lato_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_3.5x"
+            android:layout_marginTop="@dimen/space_3.5x"
+            android:textColor="#59686B"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_msg_request"
+            tools:text="Mon, 23 May - Sun, 6 Jun" />
+
+
+        <ImageView
+            android:id="@+id/img_home_request"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="@dimen/space_3.5x"
+            android:layout_marginTop="@dimen/space_3x"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_home_request"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_date_request" />
+
+
+        <TextView
+            android:id="@+id/txt_title_location_home"
+            style="@style/font_lato_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_2x"
+            android:layout_marginTop="-4dp"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toStartOf="@+id/txt_date_start_request"
+            app:layout_constraintStart_toEndOf="@+id/img_home_request"
+            app:layout_constraintTop_toTopOf="@+id/img_home_request"
+            tools:text="Almohammadiyah" />
+
+
+        <TextView
+            android:id="@+id/txt_desc_location_home"
+            style="@style/font_lato_regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_2x"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textColor="#A9A9A9"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_home_request"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toEndOf="@+id/img_home_request"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title_location_home"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Mohammadiyah district" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_date_start_request"
+            style="@style/font_lato_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_3.5x"
+            android:drawablePadding="@dimen/space_2x"
+            android:gravity="center"
+            android:textSize="@dimen/_9ssp"
+            app:drawableStartCompat="@drawable/ic_clock_request"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_title_location_home"
+            tools:text="7:00 PM" />
+
+        <ImageView
+            android:id="@+id/img_arrow_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2x"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_swap"
+            app:layout_constraintEnd_toEndOf="@+id/img_home_request"
+            app:layout_constraintStart_toStartOf="@+id/img_home_request"
+            app:layout_constraintTop_toBottomOf="@+id/img_home_request" />
+
+
+        <ImageView
+            android:id="@+id/img_location_request"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="@dimen/space_3.5x"
+            android:layout_marginTop="@dimen/space_2x"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_location_request"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_arrow_request" />
+
+        <TextView
+            android:id="@+id/txt_title_location"
+            style="@style/font_lato_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_2x"
+            android:layout_marginTop="-4dp"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toStartOf="@+id/txt_date_end_request"
+            app:layout_constraintStart_toEndOf="@+id/img_location_request"
+            app:layout_constraintTop_toTopOf="@+id/img_location_request"
+            tools:text="Alandalus school " />
+
+
+        <TextView
+            android:id="@+id/txt_desc_location"
+            style="@style/font_lato_regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_2x"
+            android:layout_marginBottom="-4dp"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textColor="#A9A9A9"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_location_request"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_location_request"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title_location"
+            tools:text="Abasatin district" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_date_end_request"
+            style="@style/font_lato_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/space_3.5x"
+            android:drawablePadding="@dimen/space_2x"
+            android:gravity="center"
+            android:textSize="@dimen/_9ssp"
+            app:drawableStartCompat="@drawable/ic_clock_request"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_title_location"
+            tools:text="3:00 PM" />
+
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="12dp"
+            android:background="#F5F8FF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_desc_location" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_noOf_girls"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginHorizontal="@dimen/space_3.5x"
+            android:layout_marginVertical="@dimen/space_3x"
+            android:background="@drawable/bg_txt_light_blue"
+            android:gravity="center"
+            android:minWidth="65dp"
+            android:paddingStart="@dimen/space_2x"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/ic_woman_head"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider1"
+            tools:ignore="RtlSymmetry"
+            tools:text="x1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_noOf_boys"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginHorizontal="@dimen/space_2x"
+            android:layout_marginVertical="@dimen/space_3x"
+            android:background="@drawable/bg_txt_light_blue"
+            android:gravity="center"
+            android:minWidth="65dp"
+            android:paddingStart="@dimen/space_2x"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_man_head"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt_noOf_girls"
+            app:layout_constraintTop_toBottomOf="@+id/divider1"
+            tools:ignore="RtlSymmetry"
+            tools:text="x1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_noOf_days"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginHorizontal="@dimen/space_2x"
+            android:layout_marginVertical="@dimen/space_3x"
+            android:background="@drawable/bg_txt_light_blue"
+            android:drawablePadding="@dimen/space_2x"
+            android:gravity="center"
+            android:minWidth="65dp"
+            android:paddingStart="@dimen/space_2x"
+            android:paddingEnd="@dimen/space_2x"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/ic_calendar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt_noOf_girls"
+            app:layout_constraintTop_toBottomOf="@+id/divider1"
+            tools:ignore="RtlSymmetry"
+            tools:text="2 days" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_type_car"
+            android:layout_width="75dp"
+            android:layout_height="35dp"
+            android:layout_marginHorizontal="@dimen/space_2x"
+            android:layout_marginVertical="@dimen/space_3x"
+            android:background="@drawable/bg_txt_light_blue"
+            android:drawablePadding="@dimen/space_1x"
+            android:gravity="center"
+            android:paddingStart="@dimen/space_2x"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/ic_bus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt_noOf_days"
+            app:layout_constraintTop_toBottomOf="@+id/divider1"
+            tools:ignore="RtlSymmetry"
+            tools:text="Bus" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

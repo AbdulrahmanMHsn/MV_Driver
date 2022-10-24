@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myDeal.MyDealsFragment">
+
+    <com.seamlabs.mvpdriver.common.view.component.AppBarView
+        android:id="@+id/appBar_myDeals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chips_group_deal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_marginHorizontal="@dimen/space_3.5x"
+        android:layout_marginVertical="@dimen/space_2x"
+        app:checkedChip="@id/upcoming_chip"
+        app:chipSpacing="@dimen/space_3.5x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar_myDeals"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/upcoming_chip"
+            style="@style/SelectionChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/space_20x"
+            android:text="@string/upcoming"
+            app:chipBackgroundColor="@color/blue_white_chip" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/past_chip"
+            style="@style/SelectionChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/space_20x"
+            android:text="@string/past"
+            app:chipBackgroundColor="@color/blue_white_chip" />
+
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcVw_myDeals"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chips_group_deal"
+        tools:listitem="@layout/adapter_item_market_request" />
+
+
+    <include
+        layout="@layout/layout_empty_deals"
+        android:id="@+id/layout_empty_deals"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar_myDeals" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

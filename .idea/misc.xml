@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable-v24/bg_status_deal.xml" value="0.1455" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable-v24/ic_back_arrow.xml" value="0.1105" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable-v24/ic_bus.xml" value="0.1525" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable-v24/ic_home_request.xml" value="0.1245" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.151" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable-v24/ic_man_head.xml" value="0.1525" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/auth_header.xml" value="0.164" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/bg_blue.xml" value="0.1" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/bg_btn_add_vehicle.xml" value="0.12" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/bg_dialog_submit_offer.xml" value="0.1205" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/bg_head_dialog.xml" value="0.1205" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/bg_txt_light_blue.xml" value="0.1525" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/bg_white.xml" value="0.1245" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/bg_white_border_blue.xml" value="0.1205" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/bg_white_with_border_gray.xml" value="0.1205" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_back.xml" value="0.1205" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_back_arrow.xml" value="0.151" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_calendar.xml" value="0.1525" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_card_company.xml" value="0.1265" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_card_driver.xml" value="0.12" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_choose_type_user.xml" value="0.12" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_clock_request.xml" value="0.1525" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_home_request.xml" value="0.151" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_launcher_background.xml" value="0.151" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_location_request.xml" value="0.1245" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_logout.xml" value="0.1205" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_phone_icon.xml" value="0.1205" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_profile.xml" value="0.1" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_sms.xml" value="0.104" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_swap.xml" value="0.113" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_upload_photo.xml" value="0.1035" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_woman_head.xml" value="0.1525" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/rectangular_shadow.xml" value="0.1525" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/adapter_item_market_request.xml" value="0.25" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/adapter_item_my_deal.xml" value="0.2" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/adapter_item_notification.xml" value="0.2" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/bg_white.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/component_app_bar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/dialog_submit_offer.xml" value="0.22" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_choose_user_type.xml" value="0.25" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_complete_profile.xml" value="0.1675213675213675" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_complete_profile_company.xml" value="0.22" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_complete_profile_driver.xml" value="0.2" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_info_request_dialog.xml" value="0.2" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_market_request.xml" value="0.22" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_my_deals.xml" value="0.18" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_notifications.xml" value="0.16" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_profile.xml" value="0.3585951940850277" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_successfully_submitted_offer.xml" value="0.1" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/layout_card_company.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/layout_card_driver.xml" value="0.1" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/layout_empty_deals.xml" value="0.16" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/layout_empty_markets.xml" value="0.18" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/layout_section_add_vehicle.xml" value="0.25" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/menu/collector_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/menu/main_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

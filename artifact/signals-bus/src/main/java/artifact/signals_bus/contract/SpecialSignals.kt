@@ -1,0 +1,3 @@
+package artifact.signals_bus.contract
+
+interface Navigational

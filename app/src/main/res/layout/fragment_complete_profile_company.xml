@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.CompleteProfileDriverFragment">
+
+    <com.seamlabs.mvpdriver.common.view.component.AppBarView
+        android:id="@+id/appBar_completeProfileDriver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar_completeProfileDriver">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_completeProfile"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_65sdp"
+                android:layout_margin="@dimen/space_4x"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_upload_photo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/txt_title_company_name"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:text="@string/company_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_completeProfile" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edTxt_company_name"
+                style="@style/App_EditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:layout_marginEnd="@dimen/space_3.5x"
+                android:background="@drawable/bg_white_with_border_gray"
+                android:inputType="textPersonName"
+                android:nextFocusDown="@id/password_login"
+                android:paddingHorizontal="@dimen/space_3x"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_title_company_name"
+                tools:ignore="RtlSymmetry" />
+
+
+            <TextView
+                android:id="@+id/txt_title_email"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:text="@string/email_website"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edTxt_company_name" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edTxt_email"
+                style="@style/App_EditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:layout_marginEnd="@dimen/space_3.5x"
+                android:background="@drawable/bg_white_with_border_gray"
+                android:inputType="textPersonName"
+                android:nextFocusDown="@id/password_login"
+                android:paddingHorizontal="@dimen/space_3x"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_title_email"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/txt_vehicle_type"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:text="@string/vehicle_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edTxt_email" />
+
+
+            <Spinner
+                android:id="@+id/edTxt_vehicle_type"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:layout_marginEnd="@dimen/space_3.5x"
+                android:background="@drawable/bg_white_with_border_gray"
+                android:nextFocusDown="@id/password_login"
+                style="@style/font_lato_regular"
+                android:paddingHorizontal="@dimen/space_3x"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_vehicle_type"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/txt_number_of_vehicle"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:text="@string/number_of_vehicle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edTxt_vehicle_type" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edTxt_number_of_vehicle"
+                style="@style/App_EditTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:layout_marginEnd="@dimen/space_3.5x"
+                android:background="@drawable/bg_white_with_border_gray"
+                android:inputType="number"
+                android:nextFocusDown="@id/password_login"
+                android:paddingHorizontal="@dimen/space_3x"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_number_of_vehicle"
+                tools:ignore="RtlSymmetry" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Save"
+                style="@style/App_button"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginVertical="@dimen/space_8x"
+                android:background="@drawable/bg_blue"
+                android:elevation="0dp"
+                android:text="@string/save"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edTxt_number_of_vehicle" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
