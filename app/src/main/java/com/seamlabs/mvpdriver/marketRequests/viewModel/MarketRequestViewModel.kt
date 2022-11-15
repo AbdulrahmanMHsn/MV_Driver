@@ -15,7 +15,7 @@ import com.seamlabs.mvpdriver.models.TripModel
 import kotlinx.coroutines.launch
 
 
-class MarketRequestViewModel(val app: Application) : BaseViewModel(app) {
+class MarketRequestViewModel(app: Application) : BaseViewModel(app) {
 
     private val marketRequestsMutableLiveData= MutableLiveData<List<TripModel>>()
     val marketRequestsLiveData:LiveData<List<TripModel>> = marketRequestsMutableLiveData

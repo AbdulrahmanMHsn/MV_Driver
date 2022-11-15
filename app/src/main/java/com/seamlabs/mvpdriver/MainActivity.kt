@@ -3,7 +3,6 @@ package com.seamlabs.mvpdriver
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -13,16 +12,13 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
-import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.seamlabs.mvpdriver.common.utility.Navigate
 import com.seamlabs.mvpdriver.common.utility.UserPreferences
 import com.seamlabs.mvpdriver.databinding.ActivityMainBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.*
-import kotlin.concurrent.schedule
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,37 +29,37 @@ class MainActivity : AppCompatActivity() {
     // navigation
     private lateinit var navController: NavController
     private lateinit var navHostFragment: NavHostFragment
+    private lateinit var graph: NavGraph
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = installSplashScreen()
+//        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
 
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavigationComponent()
-        setupSplashScreen(splashScreen)
+//        setupSplashScreen(splashScreen)
     }
 
     private fun setupSplashScreen(splashScreen: androidx.core.splashscreen.SplashScreen) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
 
-            splashScreen.setKeepOnScreenCondition{
-                true
-            }
+//            splashScreen.setKeepOnScreenCondition {
+//                true
+//            }
 
             lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.CREATED) {
                     delay(3000)
                     if (UserPreferences.getFirstTimeOpenAppState(this@MainActivity)) {
                         if (UserPreferences.getLoginState(this@MainActivity)) {
-                            navController.graph.setStartDestination(R.id.marketRequestFragment)
-                            navController.setGraph(navController.graph,null)
+                            initNavigationComponent(R.id.marketRequestFragment)
                         } else {
-                            navController.graph.setStartDestination(R.id.loginFragment)
+                            initNavigationComponent(R.id.loginFragment)
                         }
                     }
-                    splashScreen.setKeepOnScreenCondition{
+                    splashScreen.setKeepOnScreenCondition {
                         false
                     }
                 }
@@ -71,11 +67,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initNavigationComponent() {
+    private fun initNavigationComponent(startDestination:Int = R.id.splashScreenFragment) {
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        navController.setGraph(R.navigation.nav_graph)
+        graph = navController.navInflater.inflate(R.navigation.nav_graph)
+        graph.setStartDestination(startDestination)
+        navController.graph = graph
         binding.bottomNav.setupWithNavController(navController)
         binding.bottomNav.setOnItemReselectedListener {
         }

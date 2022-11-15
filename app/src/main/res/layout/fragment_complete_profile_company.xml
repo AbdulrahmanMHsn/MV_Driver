@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authentication.CompleteProfileDriverFragment">
+    tools:context=".authentication.view.CompleteProfileDriverFragment">
 
     <com.seamlabs.mvpdriver.common.view.component.AppBarView
         android:id="@+id/appBar_completeProfileDriver"
@@ -31,7 +31,6 @@
                 android:layout_width="@dimen/_65sdp"
                 android:layout_height="@dimen/_65sdp"
                 android:layout_margin="@dimen/space_4x"
-                android:adjustViewBounds="true"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_upload_photo"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -110,13 +109,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/edTxt_email" />
 
 
-            <Spinner
+            <TextView
                 android:id="@+id/edTxt_vehicle_type"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_marginStart="@dimen/space_4x"
                 android:layout_marginTop="@dimen/space_3.5x"
                 android:layout_marginEnd="@dimen/space_3.5x"
+                android:gravity="start|center"
                 android:background="@drawable/bg_white_with_border_gray"
                 android:nextFocusDown="@id/password_login"
                 style="@style/font_lato_regular"
@@ -124,7 +124,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_vehicle_type"
-                tools:ignore="RtlSymmetry" />
+                tools:ignore="RtlSymmetry"
+                app:drawableEndCompat="@drawable/ic_arrow_down" />
 
             <TextView
                 android:id="@+id/txt_number_of_vehicle"
@@ -155,6 +156,33 @@
                 app:layout_constraintTop_toBottomOf="@id/txt_number_of_vehicle"
                 tools:ignore="RtlSymmetry" />
 
+            <TextView
+                android:id="@+id/txt_area"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:text="@string/preferred_working_area"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edTxt_number_of_vehicle" />
+
+
+            <ImageView
+                android:id="@+id/img_area"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:src="@drawable/img_map"
+                android:scaleType="fitXY"
+                android:text="@string/preferred_working_area"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_area" />
+
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_Save"
                 style="@style/App_button"
@@ -168,7 +196,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edTxt_number_of_vehicle" />
+                app:layout_constraintTop_toBottomOf="@+id/img_area" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

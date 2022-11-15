@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/signUpFragment">
+    app:startDestination="@id/splashScreenFragment">
     <fragment
         android:id="@+id/marketRequestFragment"
         android:name="com.seamlabs.mvpdriver.marketRequests.MarketRequestFragment"
@@ -35,7 +35,7 @@
         android:label="ProfileFragment" />
     <fragment
         android:id="@+id/completeProfileDriverFragment"
-        android:name="com.seamlabs.mvpdriver.authentication.CompleteProfileDriverFragment"
+        android:name="com.seamlabs.mvpdriver.authentication.view.CompleteProfileDriverFragment"
         android:label="fragment_complete_profile_driver"
         tools:layout="@layout/fragment_complete_profile_driver" />
     <fragment
@@ -50,6 +50,16 @@
         tools:layout="@layout/fragment_choose_user_type" />
     <fragment
         android:id="@+id/completeProfileCompanyFragment"
-        android:name="com.seamlabs.mvpdriver.authentication.CompleteProfileCompanyFragment"
+        android:name="com.seamlabs.mvpdriver.authentication.view.CompleteProfileCompanyFragment"
         android:label="CompleteProfileCompanyFragment" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.seamlabs.mvpdriver.authentication.view.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.seamlabs.mvpdriver.splashScreen.SplashFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" />
 </navigation>

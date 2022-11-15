@@ -1,6 +1,7 @@
 package com.seamlabs.mvpdriver.marketRequests
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
@@ -64,16 +65,17 @@ class MarketRequestFragment : BaseFragment<FragmentMarketRequestBinding>() {
     private fun initView() {
         (activity as MainActivity).showBottomNav()
         binding.appBarMarketRequest.setTitle(R.string.market_request)
-        binding.appBarMarketRequest.useSecondActionButton(true, R.drawable.ic_notification) {
-            findNavController().navigate(R.id.notificationsFragment)
-        }
+//        binding.appBarMarketRequest.useSecondActionButton(true, R.drawable.ic_notification) {
+//            findNavController().navigate(R.id.notificationsFragment)
+//        }
         initRecyclerViewMyRequests()
+        initSubmitOfferBottomSheetDialog()
     }
 
 
     private fun initRecyclerViewMyRequests() {
         marketRequestsAdapter = MarketRequestsAdapter {
-            initSubmitOfferBottomSheetDialog(it)
+            setDataWithinSubmitOfferBottomSheet(it)
         }
         binding.rcVwMarketRequests.apply {
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
@@ -94,10 +96,10 @@ class MarketRequestFragment : BaseFragment<FragmentMarketRequestBinding>() {
     }
 
 
-    private fun initSubmitOfferBottomSheetDialog(trip: TripModel) {
+    private fun initSubmitOfferBottomSheetDialog() {
         submitOfferBottomSheet =
             BottomSheetBehavior.from(binding.dialogSubmitOffer.dialogSubmitOfferBottomSheet)
-        submitOfferBottomSheet.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+        submitOfferBottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
         submitOfferBottomSheet.addBottomSheetCallback(object :
             BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {}
@@ -110,30 +112,50 @@ class MarketRequestFragment : BaseFragment<FragmentMarketRequestBinding>() {
                 }
             }
         })
+    }
 
-        binding.dialogSubmitOffer.txtNoOfStudents.text = "${trip.boysCount}" + "${trip.girlsCount}"
+    private fun setDataWithinSubmitOfferBottomSheet(trip: TripModel){
+        submitOfferBottomSheet.state = BottomSheetBehavior.STATE_HALF_EXPANDED
 
+        binding.dialogSubmitOffer.txtNoOfStudents.text = "${(trip.boysCount + trip.girlsCount)} ${getString(R.string.students)}"
+
+        binding.dialogSubmitOffer.txtDistanceTrips.visibility = View.GONE
         binding.dialogSubmitOffer.txtDistanceTrips.text = "1.5 KM"
 
-        trip.goTripTime?.let {
-            binding.dialogSubmitOffer.txtDateStartRequest.text = it
+        val district = trip.pickupAddress.split(",")
+        binding.dialogSubmitOffer.txtTitleLocationHome.text = trip.pickupAddress
+        binding.dialogSubmitOffer.txtDescLocationHome.text = "${district[district.size - 1]}"
+
+        val districtDropOff = trip.pickupAddress.split(",")
+        binding.dialogSubmitOffer.txtTitleLocation.text = trip.dropOffAddress
+        binding.dialogSubmitOffer.txtDescLocation.text = "${districtDropOff[districtDropOff.size - 1]}"
+
+        trip.goTripTime?.let { time ->
+            binding.dialogSubmitOffer.txtDateStartRequest.visibility = View.VISIBLE
+            requireContext().customFormatDate(time, "H:mm:ss", "hh:mm aa") {
+                binding.dialogSubmitOffer.txtDateStartRequest.text = it
+            }
         }
 
-        trip.backTripTime?.let {
-            binding.dialogSubmitOffer.txtDateEndRequest.text = it
+
+        trip.backTripTime?.let { time ->
+            binding.dialogSubmitOffer.txtDateEndRequest.visibility = View.VISIBLE
+            requireContext().customFormatDate(time, "H:mm:ss", "hh:mm aa") {
+                binding.dialogSubmitOffer.txtDateEndRequest.text = it
+            }
         }
 
         when (trip.tripType) {
             TripType.GO_TRIP.name -> {
-                binding.dialogSubmitOffer.txtNoOfTrips.text = "1"
+                binding.dialogSubmitOffer.txtNoOfTrips.text = "1 ${getString(R.string.trip)}"
                 binding.dialogSubmitOffer.txtTypeTrip.text = getString(R.string.go_trip)
             }
             TripType.BACK_TRIP.name -> {
-                binding.dialogSubmitOffer.txtNoOfTrips.text = "1"
+                binding.dialogSubmitOffer.txtNoOfTrips.text = "1  ${getString(R.string.trip)}"
                 binding.dialogSubmitOffer.txtTypeTrip.text = getString(R.string.back_trip)
             }
             TripType.ROUND_TRIP.name -> {
-                binding.dialogSubmitOffer.txtNoOfTrips.text = "2"
+                binding.dialogSubmitOffer.txtNoOfTrips.text = "2  ${getString(R.string.trips)}"
                 binding.dialogSubmitOffer.txtTypeTrip.text = getString(R.string.round_trip)
             }
         }
@@ -151,7 +173,7 @@ class MarketRequestFragment : BaseFragment<FragmentMarketRequestBinding>() {
                     comment)
             }
         }
-
     }
+
 
 }

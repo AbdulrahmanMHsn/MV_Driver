@@ -16,7 +16,7 @@ import com.seamlabs.mvpdriver.databinding.FragmentLoginBinding
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
 
-    private val authViewModel:AuthViewModel by viewModels()
+    private val authViewModel: AuthViewModel by viewModels()
 
 
     private val signalsHandler: (Signal) -> Unit = { signal ->
@@ -25,12 +25,18 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             is StopLoading -> hideProgress()
             is SomethingWentWrong.ErrorMessage -> makeToast(BaseViewModel.errorMessage)
             is SomethingWentWrong.ConnectionFailure -> makeToast(BaseViewModel.errorMessage)
+            is SomethingWentWrong.BadCredentials -> {
+                binding.wrongCredentialsLogin.visibility = View.VISIBLE
+            }
             is Navigate.SuccessLoginNavigate -> {
                 NavigationHelper.navigateInclusive(findNavController(),
-                    R.id.loginFragment,R.id.marketRequestFragment)
+                    R.id.loginFragment, R.id.marketRequestFragment)
             }
-            else->{}
-
+            is Navigate.ProfileUncompleted -> {
+                NavigationHelper.navigate(findNavController(),
+                    R.id.loginFragment, R.id.chooseUserTypeFragment)
+            }
+            else -> {}
         }
     }
 
@@ -50,29 +56,34 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     }
 
-    private fun btnListener(){
+
+    private fun btnListener() {
         binding.loginBtnLogin.setOnClickListener {
-            NavigationHelper.navigateInclusive(findNavController(),
-                R.id.loginFragment,R.id.marketRequestFragment)
-//            login()
+            binding.wrongCredentialsLogin.visibility = View.GONE
+            login()
         }
 
         binding.signupLogin.setOnClickListener {
             NavigationHelper.navigate(findNavController(),
-                R.id.loginFragment,R.id.signUpFragment)
+                R.id.loginFragment, R.id.signUpFragment)
         }
     }
 
-    private fun login(){
+
+    private fun login() {
         val countryCode = binding.countryCodeLogin.selectedCountryCode
         val phoneNumber = binding.phoneNumberLogin.text.toString()
         val password = binding.passwordLogin.text.toString()
+
+        binding.phoneNumberLogin.error = null
+        binding.passwordLogin.error = null
+
         when {
             phoneNumber.isEmpty() -> {
                 binding.phoneNumberLogin.error = getString(R.string.empty_field)
             }
             password.isEmpty() -> {
-                binding.passwordLayoutLogin.error = getString(R.string.empty_field)
+                binding.passwordLogin.error = getString(R.string.empty_field)
             }
             else -> {
                 authViewModel.login(requireContext(), countryCode, phoneNumber, password)

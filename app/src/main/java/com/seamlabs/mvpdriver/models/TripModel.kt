@@ -55,6 +55,12 @@ data class TripModel(
     val updatedAt: String,
     @SerializedName("vehicle_type")
     val vehicleType: String,
+    @SerializedName("pickup_address")
+    val pickupAddress: String,
+    @SerializedName("dropoff_address")
+    val dropOffAddress: String,
+    @SerializedName("requester")
+    val requester: Requester,
 )
 
 data class Offer(
@@ -73,3 +79,25 @@ data class Offer(
     @SerializedName("updated_at")
     val updatedAt: String,
 )
+
+data class Requester(
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("blueride_parent_id")
+    val bluerideParentId: Int,
+    @SerializedName("national_id")
+    val nationalId: String,
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("email")
+    val email: String,
+    @SerializedName("country_code")
+    val countryCode: String,
+    @SerializedName("phone")
+    val phone: String,
+    @SerializedName("created_at")
+    val createdAt: String,
+    @SerializedName("updated_at")
+    val updatedAt: String,
+)
+

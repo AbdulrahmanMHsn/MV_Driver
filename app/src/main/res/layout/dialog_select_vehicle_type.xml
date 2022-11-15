@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@drawable/bg_dialog_submit_offer"
+    android:orientation="vertical">
+
+
+    <TextView
+        style="@style/font_lato_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_6x"
+        android:text="@string/select_vehicle_types"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcVw_vehicleTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="3"
+        android:layout_marginTop="@dimen/space_2x"
+        tools:listitem="@layout/adapter_vehicle_type" />
+
+
+</LinearLayout>

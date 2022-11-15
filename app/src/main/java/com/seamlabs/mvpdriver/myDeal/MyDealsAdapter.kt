@@ -7,8 +7,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.seamlabs.mvpdriver.R
+import com.seamlabs.mvpdriver.common.utility.customFormatDate
+import com.seamlabs.mvpdriver.common.utility.getDifferenceBetweenDates
 import com.seamlabs.mvpdriver.databinding.AdapterItemMyDealBinding
 import com.seamlabs.mvpdriver.models.TripModel
+import com.seamlabs.mvpdriver.models.VehicleType
 
 
 class MyDealsAdapter(private val onClickItem:(TripModel)->Unit) :
@@ -36,45 +40,65 @@ class MyDealsAdapter(private val onClickItem:(TripModel)->Unit) :
         position: Int,
     ) {
         val item = getItem(position)
+        val context = holder.itemView.context
 
         holder.binding.apply {
 
-            txtDateRequest.text = "Starting ${item.createdAt}"
-
-            txtTitleLocationHome.text = "Almohammadiyah"
-
-            txtDescLocationHome.text = "Mohammadiyah district"
-
-            item.goTripTime?.let {
-                txtDateStartRequest.text = it
+            context.customFormatDate(item.customStartDate, "dd/MM/yyyy", "EEE, d MMM") {
+                txtDateRequest.text = context.getString(R.string.starting_from," $it ")
             }
 
-            item.backTripTime?.let {
-                txtDateEndRequest.text = it
+            val district = item.pickupAddress.split(",")
+            txtTitleLocationHome.text = item.pickupAddress
+            txtDescLocationHome.text = "${district[district.size - 1]}"
+
+
+            item.goTripTime?.let { time->
+                txtDateStartRequest.visibility = View.VISIBLE
+                context.customFormatDate(time, "H:mm:ss", "hh:mm aa") {
+                    txtDateStartRequest.text = it
+                }
             }
 
-            txtTitleLocation.text = "Alandalus school"
 
-            txtDescLocation.text = "Abasatin district"
-
-            if (item.girlsCount != 0) {
-                txtNoOfGirls.text = item.girlsCount.toString()
-                txtNoOfGirls.visibility = View.VISIBLE
-            }else{
-                txtNoOfGirls.visibility = View.GONE
+            item.backTripTime?.let { time->
+                txtDateEndRequest.visibility = View.VISIBLE
+                context.customFormatDate(time, "H:mm:ss", "hh:mm aa") {
+                    txtDateEndRequest.text = it
+                }
             }
 
-            if (item.boysCount != 0) {
-                txtNoOfBoys.text =  item.boysCount.toString()
-                txtNoOfBoys.visibility = View.VISIBLE
-            }else{
-                txtNoOfBoys.visibility = View.GONE
+
+            val districtDropOff = item.pickupAddress.split(",")
+            txtTitleLocation.text = item.dropOffAddress
+            txtDescLocation.text = "${districtDropOff[districtDropOff.size - 1]}"
+
+//            if (item.girlsCount != 0) {
+            txtNoOfGirls.text = item.girlsCount.toString()
+//                txtNoOfGirls.visibility = View.VISIBLE
+//            }else{
+//                txtNoOfGirls.visibility = View.GONE
+//            }
+
+//            if (item.boysCount != 0) {
+            txtNoOfBoys.text = item.boysCount.toString()
+//                txtNoOfBoys.visibility = View.VISIBLE
+//            }else{
+//                txtNoOfBoys.visibility = View.GONE
+//            }
+
+
+            context.getDifferenceBetweenDates(item.customStartDate, item.customEndDate) {
+                txtNoOfDays.text = "$it ${holder.itemView.context.getString(R.string.days)}"
             }
 
-            txtNoOfDays.text = item.tripPeriod
-            txtTypeCar.text = item.vehicleType
+            when (item.vehicleType) {
+                VehicleType.BUS.name -> txtTypeCar.text = context.getString(R.string.bus)
+                VehicleType.CARPOOLING.name -> txtTypeCar.text =
+                    context.getString(R.string.carpooling)
+                VehicleType.CAR.name -> txtTypeCar.text = context.getString(R.string.personal_car)
+            }
 
-            txtDateRequest.text = item.createdAt
 
             txtStatusRequest.text = item.status
 

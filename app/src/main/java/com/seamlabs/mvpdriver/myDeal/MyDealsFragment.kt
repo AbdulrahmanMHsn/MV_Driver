@@ -51,9 +51,9 @@ class MyDealsFragment : BaseFragment<FragmentMyDealsBinding>() {
     private fun initView() {
         (activity as MainActivity).showBottomNav()
         binding.appBarMyDeals.setTitle(R.string.my_deals)
-        binding.appBarMyDeals.useSecondActionButton(true, R.drawable.ic_notification) {
-            findNavController().navigate(R.id.notificationsFragment)
-        }
+//        binding.appBarMyDeals.useSecondActionButton(true, R.drawable.ic_notification) {
+//            findNavController().navigate(R.id.notificationsFragment)
+//        }
         initRecyclerViewMyRequests()
     }
 
@@ -61,17 +61,27 @@ class MyDealsFragment : BaseFragment<FragmentMyDealsBinding>() {
         binding.upcomingChip.setOnClickListener {
             if (dealsViewModel.upComingDealsList.isNullOrEmpty()){
                 binding.layoutEmptyDeals.emptyDeals.visibility = View.VISIBLE
+                binding.rcVwMyDeals.visibility = View.GONE
             }else{
+                myDealsAdapter.submitList(dealsViewModel.upComingDealsList)
                 binding.layoutEmptyDeals.emptyDeals.visibility = View.GONE
+                binding.rcVwMyDeals.visibility = View.VISIBLE
             }
         }
 
         binding.pastChip.setOnClickListener {
-            if (dealsViewModel.upComingDealsList.isNullOrEmpty()){
+            if (dealsViewModel.pastDealsList.isNullOrEmpty()){
                 binding.layoutEmptyDeals.emptyDeals.visibility = View.VISIBLE
+                binding.rcVwMyDeals.visibility = View.GONE
             }else{
+                myDealsAdapter.submitList(dealsViewModel.pastDealsList)
                 binding.layoutEmptyDeals.emptyDeals.visibility = View.GONE
+                binding.rcVwMyDeals.visibility = View.VISIBLE
             }
+        }
+
+        binding.layoutEmptyDeals.btnSubmitRequest.setOnClickListener {
+            findNavController().navigate(R.id.marketRequestFragment)
         }
     }
 
@@ -88,14 +98,18 @@ class MyDealsFragment : BaseFragment<FragmentMyDealsBinding>() {
     private fun subscribeData() {
         dealsViewModel.dealsLiveData.observe(viewLifecycleOwner) { deals ->
 
-            binding.upcomingChip.text = "${getString(R.string.upcoming)} ${deals.upcomingDealsCount}"
-            binding.upcomingChip.text = "${getString(R.string.past)} ${deals.pastDealsCount}"
+            binding.chipsGroupDeal.visibility = View.VISIBLE
+            binding.upcomingChip.text = "${getString(R.string.upcoming)}  ${deals.upcomingDealsCount}"
+            binding.pastChip.text = "${getString(R.string.past)}  ${deals.pastDealsCount}"
 
             if (deals.deals.upcomingDeals.isNullOrEmpty()) {
                 binding.layoutEmptyDeals.emptyDeals.visibility = View.VISIBLE
             } else {
                 binding.layoutEmptyDeals.emptyDeals.visibility = View.GONE
             }
+
+            myDealsAdapter.submitList(deals.deals.upcomingDeals)
+
         }
     }
 

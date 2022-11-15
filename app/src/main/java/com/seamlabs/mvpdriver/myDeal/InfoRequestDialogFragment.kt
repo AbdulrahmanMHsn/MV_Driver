@@ -9,6 +9,7 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import com.seamlabs.mvpdriver.R
 import com.seamlabs.mvpdriver.common.utility.callIntent
+import com.seamlabs.mvpdriver.common.utility.customFormatDate
 import com.seamlabs.mvpdriver.databinding.FragmentInfoRequestDialogBinding
 import com.seamlabs.mvpdriver.models.TripModel
 import com.seamlabs.mvpdriver.models.TripType
@@ -51,36 +52,46 @@ class InfoRequestDialogFragment(private val trip:TripModel) : DialogFragment() {
     }
 
     private fun setData(){
-        binding.txtNoOfStudents.text = "${trip.boysCount}" + "${trip.girlsCount}"
+        binding.txtNoOfStudents.text = "${(trip.boysCount + trip.girlsCount)} ${getString(R.string.students)}"
 
         binding.txtDistanceTrips.text = "1.5 KM"
 
-        trip.goTripTime?.let {
-            binding.txtDateStartRequest.text = it
+        trip.goTripTime?.let { time ->
+            binding.txtDateStartRequest.visibility = View.VISIBLE
+            requireContext().customFormatDate(time, "H:mm:ss", "hh:mm aa") {
+                binding.txtDateStartRequest.text = it
+            }
         }
 
-        trip.backTripTime?.let {
-            binding.txtDateEndRequest.text = it
+
+        trip.backTripTime?.let { time ->
+            binding.txtDateEndRequest.visibility = View.VISIBLE
+            requireContext().customFormatDate(time, "H:mm:ss", "hh:mm aa") {
+                binding.txtDateEndRequest.text = it
+            }
         }
 
 
-        binding.txtTitleLocationHome.text = "Almohammadiyah"
-        binding.txtDescLocationHome.text = "Mohammadiyah district"
+        val district = trip.pickupAddress.split(",")
+        binding.txtTitleLocationHome.text = trip.pickupAddress
+        binding.txtDescLocationHome.text = "${district[district.size - 1]}"
 
-        binding.txtTitleLocation.text = "Almohammadiyah"
-        binding.txtDescLocation.text = "Mohammadiyah district"
+
+        val districtDropOff = trip.pickupAddress.split(",")
+        binding.txtTitleLocation.text = trip.dropOffAddress
+        binding.txtDescLocation.text = "${districtDropOff[districtDropOff.size - 1]}"
 
         when (trip.tripType) {
             TripType.GO_TRIP.name -> {
-                binding.txtNoOfTrips.text = "1"
+                binding.txtNoOfTrips.text = "1 ${getString(R.string.trip)}"
                 binding.txtTypeTrip.text = getString(R.string.go_trip)
             }
             TripType.BACK_TRIP.name -> {
-                binding.txtNoOfTrips.text = "1"
+                binding.txtNoOfTrips.text = "1 ${getString(R.string.trip)}"
                 binding.txtTypeTrip.text = getString(R.string.back_trip)
             }
             TripType.ROUND_TRIP.name -> {
-                binding.txtNoOfTrips.text = "2"
+                binding.txtNoOfTrips.text = "2 ${getString(R.string.trips)}"
                 binding.txtTypeTrip.text = getString(R.string.round_trip)
             }
         }
@@ -101,7 +112,7 @@ class InfoRequestDialogFragment(private val trip:TripModel) : DialogFragment() {
 
     private fun setBtnListeners() {
         binding.btnCall.setOnClickListener {
-            requireActivity().callIntent("")
+            requireActivity().callIntent("${trip.requester.countryCode}${trip.requester.phone}")
         }
     }
 

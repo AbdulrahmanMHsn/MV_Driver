@@ -8,7 +8,7 @@ import com.seamlabs.mvpdriver.R
 
 object NavigationHelper {
 
-    fun navigateInclusive(
+     fun navigateInclusive(
         navController: NavController,
         @IdRes sourceId: Int,
         @IdRes destinationId: Int,

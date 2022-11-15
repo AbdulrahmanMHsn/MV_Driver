@@ -219,6 +219,7 @@
         android:layout_margin="@dimen/space_3.5x"
         android:text="@string/distance_trip"
         android:textSize="14sp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title_noOf_trips" />
 
@@ -230,6 +231,7 @@
         android:layout_margin="@dimen/space_3.5x"
         tools:text="1.5 KM"
         android:textSize="14sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_noOf_trips" />
 
@@ -288,6 +290,7 @@
         android:layout_margin="@dimen/space_3.5x"
         android:text="@string/type_of_trip"
         android:textSize="14sp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title_type_trip" />
 
@@ -300,6 +303,7 @@
         android:layout_margin="@dimen/space_3.5x"
         tools:text="Personal driver"
         android:textSize="14sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title_type_trip" />
 

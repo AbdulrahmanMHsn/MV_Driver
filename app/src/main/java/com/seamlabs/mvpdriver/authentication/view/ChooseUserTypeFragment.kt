@@ -26,6 +26,9 @@ class ChooseUserTypeFragment : BaseFragment<FragmentChooseUserTypeBinding>() {
     private fun initView() {
         (activity as MainActivity).hideBottomNav()
         binding.appBarChooseAccountType.setTitle(R.string.choose_account_type)
+        binding.appBarChooseAccountType.useSecondActionButton(true, R.drawable.ic_back){
+            findNavController().popBackStack()
+        }
     }
 
     private fun btnListener() {

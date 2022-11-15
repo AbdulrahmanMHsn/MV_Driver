@@ -61,7 +61,8 @@
                 android:layout_marginHorizontal="@dimen/space_2x"
                 android:layout_marginTop="-4dp"
                 android:singleLine="true"
-                android:text="Almohammadiyah"
+                android:textAlignment="viewStart"
+                tools:text="Almohammadiyah"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toStartOf="@+id/txt_date_start_request"
                 app:layout_constraintStart_toEndOf="@+id/img_home_request"
@@ -71,18 +72,20 @@
             <TextView
                 android:id="@+id/txt_desc_location_home"
                 style="@style/font_lato_regular"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space_2x"
+                android:layout_marginHorizontal="@dimen/space_2x"
                 android:layout_marginTop="@dimen/space_1x"
                 android:layout_marginBottom="-4dp"
                 android:singleLine="true"
-                android:text="Mohammadiyah district"
+                android:textAlignment="viewStart"
                 android:textColor="#A9A9A9"
                 android:textSize="@dimen/_11ssp"
                 app:layout_constraintBottom_toBottomOf="@+id/img_home_request"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/img_home_request"
-                app:layout_constraintTop_toBottomOf="@+id/txt_title_location_home" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_title_location_home"
+                tools:text="Mohammadiyah district" />
 
 
             <TextView
@@ -93,7 +96,8 @@
                 android:layout_marginEnd="@dimen/space_3.5x"
                 android:drawablePadding="@dimen/space_2x"
                 android:gravity="center"
-                android:text="2:00 PM"
+                tools:text="2:00 PM"
+                android:visibility="invisible"
                 android:textSize="@dimen/_9ssp"
                 app:drawableStartCompat="@drawable/ic_clock_request"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -132,6 +136,7 @@
                 android:drawablePadding="@dimen/space_2x"
                 android:gravity="center"
                 android:textSize="@dimen/_9ssp"
+                android:visibility="invisible"
                 app:drawableStartCompat="@drawable/ic_clock_request"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/txt_title_location"
@@ -145,7 +150,7 @@
                 android:layout_marginHorizontal="@dimen/space_2x"
                 android:layout_marginTop="-4dp"
                 android:singleLine="true"
-                android:text="Alandalus school "
+                tools:text="Alandalus school "
                 android:textAlignment="viewStart"
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toStartOf="@+id/txt_date_end_request"
@@ -162,7 +167,7 @@
                 android:layout_marginTop="@dimen/space_1x"
                 android:layout_marginBottom="-4dp"
                 android:singleLine="true"
-                android:text="Abasatin district"
+                tools:text="Abasatin district"
                 android:textAlignment="viewStart"
                 android:textColor="#A9A9A9"
                 android:textSize="@dimen/_11ssp"
@@ -199,7 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_3.5x"
-                android:text="2 Trips"
+                tools:text="2 Trips"
                 android:textSize="@dimen/_11sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider1" />
@@ -212,6 +217,7 @@
                 android:layout_margin="@dimen/space_3.5x"
                 android:text="@string/distance_trip"
                 android:textSize="@dimen/_11sdp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_title_noOf_trips" />
 
@@ -221,7 +227,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_3.5x"
-                android:text="1.5 KM"
+                tools:text="1.5 KM"
+                android:visibility="gone"
                 android:textSize="@dimen/_11sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_noOf_trips" />
@@ -243,7 +250,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_3.5x"
-                android:text="2 Students"
+                tools:text="2 Students"
                 android:textSize="@dimen/_11sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_distance_trips" />
@@ -267,7 +274,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_3.5x"
-                android:text="Personal driver"
+                tools:text="Personal driver"
                 android:textSize="@dimen/_11sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_noOf_students" />

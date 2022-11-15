@@ -30,6 +30,7 @@ sealed class Navigate : Signal(), Navigational {
     object OnSuccessPickStudent: Navigate()
     object OnSuccessFinishRequest: Navigate()
     object SuccessLoginNavigate: Navigate()
+    object ProfileUncompleted: Navigate()
     object SuccessRegisterNavigate: Navigate()
     object SendVerificationCode: Navigate()
     object FireBaseOnCodeSentSuccess: Navigate()
@@ -70,6 +71,9 @@ sealed class Navigate : Signal(), Navigational {
     object ToCallBusSubscription: Navigate()
     object OnSuccessSetAbsent: Navigate()
     object OnSuccessSubmitOffer: Navigate()
+    object OnSuccessCompleteCompanyProfile:Navigate()
+    object OnSuccessCompleteIndividualProfile:Navigate()
+    object OnSuccessLogout:Navigate()
 }
 
 sealed class SomethingWentWrong (): Signal() {
@@ -79,6 +83,7 @@ sealed class SomethingWentWrong (): Signal() {
     object CodeVerificationError : SomethingWentWrong()
     object PhoneNotValid : SomethingWentWrong()
     object DelegationError: SomethingWentWrong()
+    object BadCredentials: Navigate()
 }
 
 

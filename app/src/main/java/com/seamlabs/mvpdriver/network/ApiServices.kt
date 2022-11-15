@@ -1,8 +1,6 @@
 package com.seamlabs.mvpdriver.network
 
-import com.seamlabs.mvpdriver.models.ResponseDealsAPIResult
-import com.seamlabs.mvpdriver.models.TripModel
-import com.seamlabs.mvpdriver.models.UserModel
+import com.seamlabs.mvpdriver.models.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -24,6 +22,33 @@ interface ApiServices {
         @Field("password") password: String,
     ): Response<UserModel>
 
+
+    @POST("complete_company_profile")
+    @FormUrlEncoded
+    suspend fun completeCompanyProfile(
+        @Field("company_name") companyName: String,
+        @Field("email") email: String,
+        @Field("vehicle_count") vehicleCount: Int,
+        @Field("vehicle_type") vehicleType: String,
+        @Field("preferred_area_lat") preferredAreaLat: String,
+        @Field("preferred_area_lng") preferredAreaLng: String,
+        @Field("radius") radius: Int,
+    ): Response<UserModel>
+
+
+    @POST("complete_individual_profile")
+    @FormUrlEncoded
+    suspend fun completeIndividualProfile(
+        @Field("full_name") fullName: String,
+        @Field("email") email: String,
+        @Field("gender") gender: String,
+        @Field("vehicles") vehicles: List<VehicleModel>,
+        @Field("preferred_area_lat") preferredAreaLat: String,
+        @Field("preferred_area_lng") preferredAreaLng: String,
+        @Field("radius") radius: Int,
+    ): Response<UserModel>
+
+
     @GET("market")
     suspend fun getMarketRequests(): Response<List<TripModel>>
 
@@ -33,10 +58,18 @@ interface ApiServices {
 
 
     @POST("trip_request/{id}/submit_offer")
+    @FormUrlEncoded
     suspend fun submitOffer(
         @Path("id") tripId:Int,
         @Field("price") price: Int,
         @Field("driver_comment") driverComment:String,
     ): Response<Void>
 
+
+    @GET("profile")
+    suspend fun getProfile(): Response<ProfileResult>
+
+
+    @POST("logout")
+    suspend fun logout(): Response<Void>
 }

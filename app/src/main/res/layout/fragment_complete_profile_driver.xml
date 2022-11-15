@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authentication.CompleteProfileDriverFragment">
+    tools:context=".authentication.view.CompleteProfileDriverFragment">
 
     <com.seamlabs.mvpdriver.common.view.component.AppBarView
         android:id="@+id/appBar_completeProfileDriver"
@@ -17,6 +17,7 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:id="@+id/scroll_driver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +32,7 @@
                 android:layout_width="@dimen/_65sdp"
                 android:layout_height="@dimen/_65sdp"
                 android:layout_margin="@dimen/space_4x"
-                android:adjustViewBounds="true"
                 android:contentDescription="@null"
-                android:scaleType="centerCrop"
                 android:src="@drawable/ic_upload_photo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,17 +98,47 @@
                 app:layout_constraintTop_toBottomOf="@id/txt_title_email"
                 tools:ignore="RtlSymmetry" />
 
+            <TextView
+                android:id="@+id/txt_gender"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:text="@string/gender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edTxt_email" />
+
+
+            <TextView
+                android:id="@+id/edTxt_gender"
+                style="@style/font_lato_regular"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:layout_marginEnd="@dimen/space_3.5x"
+                android:background="@drawable/bg_white_with_border_gray"
+                android:gravity="start|center"
+                android:nextFocusDown="@id/password_login"
+                android:paddingHorizontal="@dimen/space_3x"
+                app:drawableEndCompat="@drawable/ic_arrow_down"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_gender"
+                tools:ignore="RtlSymmetry" />
+
             <View
                 android:id="@+id/view_line"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_1sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edTxt_email"
+                android:layout_marginHorizontal="@dimen/space_3x"
                 android:layout_marginTop="@dimen/space_5x"
                 android:background="#F2F2F2"
                 android:visibility="visible"
-                android:layout_marginHorizontal="@dimen/space_3x"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edTxt_gender" />
 
             <TextView
                 android:id="@+id/txt_vehicle_details"
@@ -149,6 +178,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_add_vehicle" />
 
+            <TextView
+                android:id="@+id/txt_area"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_4x"
+                android:text="@string/preferred_working_area"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_add_vehicle" />
+
+
+            <ImageView
+                android:id="@+id/img_area"
+                style="@style/field_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/space_4x"
+                android:layout_marginTop="@dimen/space_3.5x"
+                android:src="@drawable/img_map"
+                android:scaleType="fitXY"
+                android:text="@string/preferred_working_area"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_area"
+                android:contentDescription="@null" />
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_Save"
@@ -162,7 +218,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_add_vehicle" />
+                app:layout_constraintTop_toBottomOf="@+id/img_area" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

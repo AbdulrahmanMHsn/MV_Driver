@@ -16,7 +16,7 @@ import com.seamlabs.mvpdriver.models.TripModel
 import kotlinx.coroutines.launch
 
 
-class DealsViewModel(val app: Application) : BaseViewModel(app) {
+class DealsViewModel(app: Application) : BaseViewModel(app) {
 
     private val dealsMutableLiveData= MutableLiveData<ResponseDealsAPIResult>()
     val dealsLiveData:LiveData<ResponseDealsAPIResult> = dealsMutableLiveData

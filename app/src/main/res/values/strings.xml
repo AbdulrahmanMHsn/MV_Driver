@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVP Driver</string>
+    <string name="app_name">BlueRide transportation</string>
     <string name="my_deals">My Deals</string>
     <string name="market">Market</string>
     <string name="profile">Profile</string>
@@ -81,5 +81,33 @@
     <string name="bus">Bus</string>
     <string name="personal_driver">Personal driver</string>
     <string name="carpooling">Carpooling</string>
+    <string name="preferred_working_area">Preferred Working Area</string>
+    <string name="select_vehicle_types">Select Vehicle Types</string>
+    <string name="buses">Buses</string>
+    <string name="personal_cars">Personal Cars</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="permission_granted">Permission granted</string>
+    <string name="no_gps">Your gps is disabled, please enable it to start the request</string>
+    <string name="no_gps_profile">Your gps is disabled, please enable it to update your location</string>
+    <string name="open_location_settings">Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="gender">Gender</string>
+    <string name="select_gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="enter_valid_email">Please enter valid email</string>
+    <string name="number_of_vehicle_profile">Number of vehicle</string>
+    <string name="someThing_went_wrong">Something went wrong</string>
+    <string name="please_select_preferred_working_area">Please Select Preferred Working Area</string>
+    <string name="must_be_at_least_one_vehicle">Must be at least one vehicle</string>
+    <string name="permission_needed">Permission needed</string>
+    <string name="picture_permission_explanation">In order to continue and change picture, We need your permission to access your storage</string>
+    <string name="password_must_contain">Password Must Contains at least 8 Chars with : Uppercase Letter, Lowercase Letter and Digit</string>
+    <string name="personal_car">Personal Car</string>
+    <string name="days">Days</string>
+    <string name="starting_from">Starting from %s</string>
+    <string name="trip">Trip</string>
+    <string name="trips">Trips</string>
+    <string name="students">Students</string>
 
 </resources>

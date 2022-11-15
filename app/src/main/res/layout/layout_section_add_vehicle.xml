@@ -18,6 +18,37 @@
         android:layout_marginHorizontal="@dimen/space_3x"/>
 
     <TextView
+        android:id="@+id/txt_vehicle_type"
+        style="@style/field_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_5x"
+        android:text="@string/vehicle_type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_line" />
+
+
+    <TextView
+        android:id="@+id/edTxt_vehicle_type"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/space_4x"
+        android:layout_marginTop="@dimen/space_3.5x"
+        android:layout_marginEnd="@dimen/space_3.5x"
+        android:gravity="start|center"
+        android:background="@drawable/bg_white_with_border_gray"
+        android:nextFocusDown="@id/password_login"
+        style="@style/font_lato_regular"
+        android:paddingHorizontal="@dimen/space_3x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_vehicle_type"
+        tools:ignore="RtlSymmetry"
+        app:drawableEndCompat="@drawable/ic_arrow_down" />
+
+
+    <TextView
         android:id="@+id/txt_title_card_brand"
         style="@style/field_title"
         android:layout_width="wrap_content"
@@ -26,7 +57,7 @@
         android:layout_marginTop="@dimen/space_5x"
         android:text="@string/card_brand"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_line" />
+        app:layout_constraintTop_toBottomOf="@+id/edTxt_vehicle_type" />
 
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -96,7 +127,7 @@
         android:layout_marginTop="@dimen/space_3.5x"
         android:layout_marginEnd="@dimen/space_3.5x"
         android:background="@drawable/bg_white_with_border_gray"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:nextFocusDown="@id/password_login"
         android:paddingHorizontal="@dimen/space_3x"
         app:layout_constraintEnd_toEndOf="parent"

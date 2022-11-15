@@ -109,6 +109,7 @@
             android:layout_marginEnd="@dimen/space_3.5x"
             android:drawablePadding="@dimen/space_2x"
             android:gravity="center"
+            android:visibility="invisible"
             android:textSize="@dimen/_9ssp"
             app:drawableStartCompat="@drawable/ic_clock_request"
             app:layout_constraintEnd_toEndOf="parent"
@@ -180,6 +181,7 @@
             android:layout_marginEnd="@dimen/space_3.5x"
             android:drawablePadding="@dimen/space_2x"
             android:gravity="center"
+            android:visibility="invisible"
             android:textSize="@dimen/_9ssp"
             app:drawableStartCompat="@drawable/ic_clock_request"
             app:layout_constraintEnd_toEndOf="parent"
@@ -257,7 +259,8 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_type_car"
-            android:layout_width="75dp"
+            android:minWidth="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginHorizontal="@dimen/space_2x"
             android:layout_marginVertical="@dimen/space_3x"

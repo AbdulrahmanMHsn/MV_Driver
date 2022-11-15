@@ -5,3 +5,7 @@ enum class VehicleType {
     CAR,
     CARPOOLING
 }
+
+data class VehicleTypeModel(
+    val id: Int, val type: String, val name: String,
+)
