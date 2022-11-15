@@ -1,6 +1,8 @@
 package com.seamlabs.mvpdriver.network
 
 import com.seamlabs.mvpdriver.models.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -23,30 +25,44 @@ interface ApiServices {
     ): Response<UserModel>
 
 
+//    @POST("complete_company_profile")
+//    @FormUrlEncoded
+//    suspend fun completeCompanyProfile(
+//        @Field("company_name") companyName: String,
+//        @Field("email") email: String,
+//        @Field("vehicle_count") vehicleCount: Int,
+//        @Field("vehicle_type") vehicleType: String,
+//        @Field("preferred_area_lat") preferredAreaLat: String,
+//        @Field("preferred_area_lng") preferredAreaLng: String,
+//        @Field("radius") radius: Int,
+//    ): Response<UserModel>
+
+    @Multipart
     @POST("complete_company_profile")
-    @FormUrlEncoded
     suspend fun completeCompanyProfile(
-        @Field("company_name") companyName: String,
-        @Field("email") email: String,
-        @Field("vehicle_count") vehicleCount: Int,
-        @Field("vehicle_type") vehicleType: String,
-        @Field("preferred_area_lat") preferredAreaLat: String,
-        @Field("preferred_area_lng") preferredAreaLng: String,
-        @Field("radius") radius: Int,
+        @Part multiPart: Array<MultipartBody.Part>? = null
     ): Response<UserModel>
 
 
+    @Multipart
     @POST("complete_individual_profile")
-    @FormUrlEncoded
     suspend fun completeIndividualProfile(
-        @Field("full_name") fullName: String,
-        @Field("email") email: String,
-        @Field("gender") gender: String,
-        @Field("vehicles") vehicles: List<VehicleModel>,
-        @Field("preferred_area_lat") preferredAreaLat: String,
-        @Field("preferred_area_lng") preferredAreaLng: String,
-        @Field("radius") radius: Int,
+        @Part multiPart: Array<MultipartBody.Part>? = null,
+        @PartMap vehicles: HashMap<String, Any>,
     ): Response<UserModel>
+
+
+//    @POST("complete_individual_profile")
+//    @FormUrlEncoded
+//    suspend fun completeIndividualProfile(
+//        @Field("full_name") fullName: String,
+//        @Field("email") email: String,
+//        @Field("gender") gender: String,
+//        @Field("vehicles") vehicles: List<VehicleModel>,
+//        @Field("preferred_area_lat") preferredAreaLat: String,
+//        @Field("preferred_area_lng") preferredAreaLng: String,
+//        @Field("radius") radius: Int,
+//    ): Response<UserModel>
 
 
     @GET("market")

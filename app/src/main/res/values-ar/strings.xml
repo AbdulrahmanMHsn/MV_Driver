@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">BlueRide transportation</string>
     <string name="my_deals">صفقاتي</string>
     <string name="market">طلبات السوق</string>
@@ -109,5 +109,8 @@
     <string name="trip">رحلة</string>
     <string name="trips">رحلة</string>
     <string name="students">طلاب</string>
+    <string name="change_language_title">تغيير اللغة</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
 
 </resources>

@@ -124,8 +124,8 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         signalsReceiver = SignalsReceiver(viewLifecycleOwner)
         _imageHelper = ImageHelper(requireContext())
+        subscribeActivityResult()
         subscribePermissions()
-
     }
 
     override fun onStop() {

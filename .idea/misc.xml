@@ -23,6 +23,8 @@
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_calendar.xml" value="0.1525" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_card_company.xml" value="0.1265" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_card_driver.xml" value="0.12" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_change_lang.xml" value="0.1445" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_check_right.xml" value="0.1445" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_choose_type_user.xml" value="0.12" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_clock_request.xml" value="0.1525" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/drawable/ic_home_request.xml" value="0.151" />
@@ -50,6 +52,8 @@
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/dialog_gender_type.xml" value="0.1675213675213675" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/dialog_select_vehicle_type.xml" value="0.2" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/dialog_submit_offer.xml" value="0.22" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_app_setting.xml" value="0.25" />
+        <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_change_language.xml" value="0.1675213675213675" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_choose_user_type.xml" value="0.25" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_complete_profile.xml" value="0.1675213675213675" />
         <entry key="..\:/Projects/MVPDriver/app/src/main/res/layout/fragment_complete_profile_company.xml" value="0.19" />

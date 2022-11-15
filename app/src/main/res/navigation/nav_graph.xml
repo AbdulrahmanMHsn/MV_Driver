@@ -62,4 +62,14 @@
         android:name="com.seamlabs.mvpdriver.splashScreen.SplashFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" />
+    <fragment
+        android:id="@+id/appSettingFragment"
+        android:name="com.seamlabs.mvpdriver.profile.AppSettingFragment"
+        android:label="fragment_app_setting"
+        tools:layout="@layout/fragment_app_setting" />
+    <fragment
+        android:id="@+id/changeLanguageFragment"
+        android:name="com.seamlabs.mvpdriver.profile.ChangeLanguageFragment"
+        android:label="fragment_change_language"
+        tools:layout="@layout/fragment_change_language" />
 </navigation>

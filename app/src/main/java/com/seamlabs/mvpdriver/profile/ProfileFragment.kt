@@ -66,6 +66,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         binding.logOutLayout.setOnClickListener {
             profileViewModel.logout(requireContext())
         }
+
+        binding.appSettingLayout.setOnClickListener {
+            NavigationHelper.navigate(findNavController(),
+                R.id.profileFragment,
+                R.id.appSettingFragment)
+        }
     }
 
 

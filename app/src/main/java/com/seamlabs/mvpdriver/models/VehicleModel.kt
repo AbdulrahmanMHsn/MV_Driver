@@ -6,7 +6,7 @@ data class VehicleModel(
     @SerializedName("id")
     val id:Int,
     @SerializedName("vehicle_type")
-    val vehicleType:String,
+    val vehicleType:Any?,
     @SerializedName("car_brand")
     val carBrand:String,
     @SerializedName("car_model")

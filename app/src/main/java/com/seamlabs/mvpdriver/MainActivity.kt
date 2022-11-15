@@ -1,13 +1,12 @@
 package com.seamlabs.mvpdriver
 
+import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -15,7 +14,9 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.futuremind.recyclerviewfastscroll.Utils
 import com.seamlabs.mvpdriver.common.utility.UserPreferences
+import com.seamlabs.mvpdriver.common.utility.Utils.appLanguageAndScreenZoom
 import com.seamlabs.mvpdriver.databinding.ActivityMainBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -40,6 +41,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initNavigationComponent()
 //        setupSplashScreen(splashScreen)
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase)
+        if (newBase != null) {
+            appLanguageAndScreenZoom(newBase, UserPreferences.getUserLanguage(newBase))
+        }
     }
 
     private fun setupSplashScreen(splashScreen: androidx.core.splashscreen.SplashScreen) {
@@ -119,6 +127,13 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.visibility = View.VISIBLE
     }
 
+    override fun onResume() {
+        super.onResume()
+        try {
+           appLanguageAndScreenZoom(this, UserPreferences.getUserLanguage(this))
+        } catch (ex: IllegalStateException) {
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()

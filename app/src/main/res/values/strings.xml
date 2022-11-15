@@ -109,5 +109,10 @@
     <string name="trip">Trip</string>
     <string name="trips">Trips</string>
     <string name="students">Students</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="change_language_title">Change language</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
 
 </resources>

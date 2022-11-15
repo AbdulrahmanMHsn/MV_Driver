@@ -1,6 +1,5 @@
 package com.seamlabs.mvpdriver.authentication.view
 
-import android.Manifest
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +7,6 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.seamlabs.mvpdriver.MainActivity
 import com.seamlabs.mvpdriver.R
 import com.seamlabs.mvpdriver.authentication.viewModel.CompleteProfileViewModel
@@ -29,6 +27,7 @@ class CompleteProfileCompanyFragment : BaseFragment<FragmentCompleteProfileCompa
 
     // Vars
     private var typeOfVehicle: String? = null
+    private var imgPath = ""
 
 
     private val signalsHandler: (Signal) -> Unit = { signal ->
@@ -75,17 +74,20 @@ class CompleteProfileCompanyFragment : BaseFragment<FragmentCompleteProfileCompa
 
 
     private fun subscribeData() {
-        currentImagePathLiveData.observe(requireActivity()) {
-            val bitmap = BitmapFactory.decodeFile(it)
-            Log.i("TAGTAGTAG", "subscribeData: $it")
-            try {
-                Glide.with(requireContext())
-                    .load(bitmap)
-                    .circleCrop()
-                    .into(binding.imgCompleteProfile)
-            } catch (ex: Exception) {
+        currentImagePathLiveData.observe(requireActivity()) { img ->
+            img?.let {
+                val bitmap = BitmapFactory.decodeFile(it)
+                imgPath = it
+                try {
+                    Glide.with(requireContext())
+                        .load(bitmap)
+                        .circleCrop()
+                        .into(binding.imgCompleteProfile)
+                } catch (ex: Exception) {
 
+                }
             }
+
         }
     }
 
@@ -113,7 +115,7 @@ class CompleteProfileCompanyFragment : BaseFragment<FragmentCompleteProfileCompa
 
     private fun validation() {
         val companyName = binding.edTxtCompanyName.text.toString()
-        val email = binding.edTxtEmail.text.toString()
+        val email = binding.edTxtEmail.text.toString().trim()
         val vehicleType = binding.edTxtVehicleType.text.toString()
         val vehicleCount = binding.edTxtNumberOfVehicle.text.toString()
 
@@ -125,7 +127,7 @@ class CompleteProfileCompanyFragment : BaseFragment<FragmentCompleteProfileCompa
             companyName.isEmpty() -> binding.edTxtCompanyName.error =
                 getString(R.string.empty_field)
             email.isEmpty() -> binding.edTxtEmail.error = getString(R.string.empty_field)
-            email.isNotEmpty() && binding.edTxtEmail.validateEmail() -> binding.edTxtEmail.error =
+            email.isNotEmpty() && !binding.edTxtEmail.validateEmail() -> binding.edTxtEmail.error =
                 getString(R.string.enter_valid_email)
             vehicleType.isEmpty() -> binding.edTxtVehicleType.error =
                 getString(R.string.empty_field)
@@ -143,7 +145,8 @@ class CompleteProfileCompanyFragment : BaseFragment<FragmentCompleteProfileCompa
                     vehicleCount.toInt(),
                     typeOfVehicle!!,
                     completeProfileViewModel.getPreferredArea()!!.latitude.toString(),
-                    completeProfileViewModel.getPreferredArea()!!.longitude.toString())
+                    completeProfileViewModel.getPreferredArea()!!.longitude.toString(),
+                    imgPath)
             }
         }
     }

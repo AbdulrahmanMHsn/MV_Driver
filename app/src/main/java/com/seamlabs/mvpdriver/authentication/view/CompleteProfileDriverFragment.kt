@@ -1,5 +1,6 @@
 package com.seamlabs.mvpdriver.authentication.view
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -9,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.seamlabs.mvpdriver.MainActivity
 import com.seamlabs.mvpdriver.R
 import com.seamlabs.mvpdriver.authentication.viewModel.CompleteProfileViewModel
@@ -28,6 +30,8 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
 
     // Vars
     private var selectedGender: String? = ""
+    private var imgPath = ""
+
 
     private val signalsHandler: (Signal) -> Unit = { signal ->
         when (signal) {
@@ -56,7 +60,25 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
         initView()
         addVehicle()
         btnListener()
+        subscribeData()
+    }
 
+    private fun subscribeData() {
+        currentImagePathLiveData.observe(requireActivity()) { img ->
+            img?.let {
+                val bitmap = BitmapFactory.decodeFile(it)
+                imgPath = it
+                try {
+                    Glide.with(requireContext())
+                        .load(bitmap)
+                        .circleCrop()
+                        .into(binding.imgCompleteProfile)
+                } catch (ex: Exception) {
+
+                }
+            }
+
+        }
     }
 
     private fun initView() {
@@ -70,6 +92,10 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
     private fun btnListener() {
         binding.btnAddVehicle.setOnClickListener {
             addVehicle(true)
+        }
+
+        binding.imgCompleteProfile.setOnClickListener {
+            handleProfilePictureChange()
         }
 
         binding.edTxtGender.setOnClickListener {
@@ -94,59 +120,75 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
         val email = binding.edTxtEmail.text.toString()
         val gender = binding.edTxtGender.text.toString()
         val count = binding.layoutAddVehicle.childCount
+        var vehicleTypeStr:String = ""
 
+        val listOfVehicles = mutableListOf<VehicleModel>()
 
+        binding.edTxtFullName.error = null
+        binding.edTxtEmail.error = null
+        binding.edTxtGender.error = null
+
+        var type: Any? = null
+
+        for (i in 0 until count) {
+            val vehicleType = binding.layoutAddVehicle.getChildAt(i)
+                .findViewById<TextView>(R.id.edTxt_vehicle_type).text.toString()
+            val brand = binding.layoutAddVehicle.getChildAt(i)
+                .findViewById<EditText>(R.id.edTxt_car_brand).text.toString()
+            val model = binding.layoutAddVehicle.getChildAt(i)
+                .findViewById<EditText>(R.id.edTxt_car_model).text.toString()
+            val manufacturingYear = binding.layoutAddVehicle.getChildAt(i)
+                .findViewById<EditText>(R.id.edTxt_car_manufacturing_year).text.toString()
+
+            binding.layoutAddVehicle.getChildAt(i)
+                .findViewById<TextView>(R.id.edTxt_vehicle_type).error = null
+
+            vehicleTypeStr = vehicleType
+            when (vehicleType) {
+                getString(R.string.buses) -> type = VehicleType.BUS.name
+                getString(R.string.personal_cars) -> type = VehicleType.CAR.name
+                getString(R.string.carpooling) -> type = VehicleType.CARPOOLING.name
+            }
+
+            if (vehicleTypeStr.isEmpty()) {
+                binding.layoutAddVehicle.getChildAt(i)
+                    .findViewById<TextView>(R.id.edTxt_vehicle_type).error =
+                    getString(R.string.empty_field)
+                break
+            }
+            type?.let {
+                listOfVehicles.add(VehicleModel(i, type, model, brand, manufacturingYear))
+            }
+        }
 
         when {
             fullName.isEmpty() -> {
                 binding.edTxtFullName.error = getString(R.string.empty_field)
                 binding.edTxtFullName.requestFocus()
-                binding.scrollDriver.scrollTo(0,0)
+                binding.scrollDriver.scrollTo(0, 0)
             }
             email.isEmpty() -> {
                 binding.edTxtEmail.error = getString(R.string.empty_field)
                 binding.edTxtEmail.requestFocus()
-                binding.scrollDriver.scrollTo(0,0)
+                binding.scrollDriver.scrollTo(0, 0)
             }
-            email.isNotEmpty() && binding.edTxtEmail.validateEmail() -> {
+            email.isNotEmpty() && !binding.edTxtEmail.validateEmail() -> {
                 binding.edTxtEmail.error = getString(R.string.enter_valid_email)
                 binding.edTxtEmail.requestFocus()
-                binding.scrollDriver.scrollTo(0,0)
+                binding.scrollDriver.scrollTo(0, 0)
             }
             gender.isEmpty() -> {
                 binding.edTxtGender.error = getString(R.string.empty_field)
                 binding.edTxtGender.requestFocus()
-                binding.scrollDriver.scrollTo(0,0)
+                binding.scrollDriver.scrollTo(0, 0)
             }
             completeProfileViewModel.getPreferredArea() == null -> {
                 makeToast(getString(R.string.please_select_preferred_working_area))
             }
+            vehicleTypeStr.isEmpty()->{}
 
             else -> {
-                completeProfileViewModel.enqueueSignal(Load)
-                val listOfVehicles = mutableListOf<VehicleModel>()
 
-                var type = ""
-
-                for (i in 0 until count) {
-                    val vehicleType = binding.layoutAddVehicle.getChildAt(i)
-                        .findViewById<TextView>(R.id.edTxt_vehicle_type).text.toString()
-                    val brand = binding.layoutAddVehicle.getChildAt(i)
-                        .findViewById<EditText>(R.id.edTxt_car_brand).text.toString()
-                    val model = binding.layoutAddVehicle.getChildAt(i)
-                        .findViewById<EditText>(R.id.edTxt_car_model).text.toString()
-                    val manufacturingYear = binding.layoutAddVehicle.getChildAt(i)
-                        .findViewById<EditText>(R.id.edTxt_car_manufacturing_year).text.toString()
-
-
-                    when (vehicleType) {
-                        getString(R.string.buses) -> type = VehicleType.BUS.name
-                        getString(R.string.personal_cars) -> type = VehicleType.CAR.name
-                        getString(R.string.carpooling) -> type = VehicleType.CARPOOLING.name
-                    }
-
-                    listOfVehicles.add(VehicleModel(i, type, model, brand, manufacturingYear))
-                }
                 completeProfileViewModel.completeIndividualProfile(
                     requireContext(),
                     fullName,
@@ -155,6 +197,7 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
                     listOfVehicles,
                     completeProfileViewModel.getPreferredArea()!!.latitude.toString(),
                     completeProfileViewModel.getPreferredArea()!!.longitude.toString(),
+                    imgPath
                 )
             }
         }
