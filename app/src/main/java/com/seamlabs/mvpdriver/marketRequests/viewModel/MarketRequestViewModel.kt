@@ -55,4 +55,20 @@ class MarketRequestViewModel(app: Application) : BaseViewModel(app) {
         }
     }
 
+    fun submitOffer(context: Context,tripId:Int,price:Int) = viewModelScope.launch {
+        enqueueSignal(Load)
+        try {
+            val response = apiServices.submitOffer(tripId, price)
+            if (response.isSuccessful) {
+                enqueueSignal(StopLoading, Navigate.OnSuccessSubmitOffer)
+            } else {
+                errorMessage = context.getString(R.string.server_error)
+                enqueueSignal(StopLoading, SomethingWentWrong.ConnectionFailure)
+            }
+        } catch (ex: Throwable) {
+            errorMessage = context.getString(R.string.server_error)
+            enqueueSignal(StopLoading, SomethingWentWrong.ConnectionFailure)
+        }
+    }
+
 }

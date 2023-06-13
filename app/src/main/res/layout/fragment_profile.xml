@@ -32,128 +32,82 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/top_card_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginTop="@dimen/space_6x"
                 android:background="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageView
                     android:id="@+id/profile_image"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/space_6x"
                     android:src="@drawable/ic_placeholder_profile"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
                     android:id="@+id/user_name_new_profile"
                     style="@style/font_lato_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    tools:text="Ahmed Abduallah"
+                    android:layout_marginStart="@dimen/space_3x"
                     android:textAlignment="viewStart"
                     android:textColor="#464646"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="@id/profile_image"
-                    app:layout_constraintStart_toStartOf="@id/profile_image"
-                    app:layout_constraintTop_toBottomOf="@id/profile_image" />
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/profile_image"
+                    app:layout_constraintTop_toTopOf="@id/profile_image"
+                    tools:text="Nadeen Abdelrahmans" />
 
                 <TextView
                     android:id="@+id/user_phone_id_new_profile"
                     style="@style/font_lato_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_2x"
-                    tools:text="+1005846588 | 78541627749"
                     android:textAlignment="viewStart"
                     android:textColor="#A8A8A8"
-                    android:textSize="@dimen/_10ssp"
-                    app:layout_constraintEnd_toEndOf="@id/user_name_new_profile"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/txt_user_type"
                     app:layout_constraintStart_toStartOf="@id/user_name_new_profile"
-                    app:layout_constraintTop_toBottomOf="@id/user_name_new_profile" />
+                    app:layout_constraintTop_toBottomOf="@id/user_name_new_profile"
+                    tools:text="+1005846588 | 78541627749" />
 
                 <TextView
                     android:id="@+id/user_role_new_profile"
-                    style="@style/font_lato_bold"
+                    style="@style/font_lato_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_1x"
-                    android:layout_marginBottom="@dimen/space_4x"
-                    tools:text="@string/driver"
+                    android:layout_marginStart="@dimen/space_2x"
                     android:textColor="#464646"
-                    android:textSize="@dimen/_11ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="@id/user_phone_id_new_profile"
-                    app:layout_constraintStart_toStartOf="@id/user_phone_id_new_profile"
-                    app:layout_constraintTop_toBottomOf="@id/user_phone_id_new_profile" />
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/children_count_card"
-                    android:layout_width="@dimen/_90sdp"
-                    android:layout_height="@dimen/_70sdp"
-                    android:layout_margin="@dimen/_8sdp"
+                    android:textSize="12sp"
                     android:visibility="gone"
-                    android:background="@drawable/grey_card_background"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/user_role_new_profile">
+                    app:layout_constraintBottom_toBottomOf="@+id/user_name_new_profile"
+                    app:layout_constraintStart_toEndOf="@+id/user_name_new_profile"
+                    app:layout_constraintTop_toTopOf="@+id/user_name_new_profile"
+                    tools:text="(Parent)" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/space_2x"
-                        android:paddingBottom="@dimen/_8sdp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:id="@+id/children_title"
-                            style="@style/font_lato_regular"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/number_of_vehicle_profile"
-                            android:textAlignment="viewStart"
-                            android:textColor="#1C70D0"
-                            android:textSize="@dimen/_10ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-
-                        <TextView
-                            android:id="@+id/txt_vehicle_count"
-                            style="@style/font_lato_bold"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_6sdp"
-                            android:text="5"
-                            android:textAlignment="viewStart"
-                            android:textColor="#464646"
-                            android:textSize="@dimen/_18ssp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/children_title" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
+                <TextView
+                    android:id="@+id/txt_user_type"
+                    style="@style/font_lato_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_3x"
+                    android:textAlignment="viewStart"
+                    android:textColor="#1C70D0"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_image"
+                    app:layout_constraintStart_toEndOf="@id/profile_image"
+                    tools:text="5 Children | 2 Schools" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/edit_profile_layout"
@@ -285,7 +239,7 @@
                 android:background="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/app_setting_layout">
+                app:layout_constraintTop_toBottomOf="parent">
 
                 <ImageButton
                     android:id="@+id/imgFacebook"
@@ -348,7 +302,7 @@
                 android:paddingBottom="@dimen/space_3x"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/app_social_media_layout">
+                app:layout_constraintTop_toBottomOf="@id/app_setting_layout">
 
                 <ImageView
                     android:id="@+id/help_icon"

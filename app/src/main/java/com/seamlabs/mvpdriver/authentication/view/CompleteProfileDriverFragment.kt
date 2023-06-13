@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.seamlabs.mvpdriver.MainActivity
 import com.seamlabs.mvpdriver.R
 import com.seamlabs.mvpdriver.authentication.viewModel.CompleteProfileViewModel
+import com.seamlabs.mvpdriver.authentication.viewModel.SharedViewModel
 import com.seamlabs.mvpdriver.common.base.BaseFragment
 import com.seamlabs.mvpdriver.common.base.BaseViewModel
 import com.seamlabs.mvpdriver.common.utility.*
@@ -27,6 +28,7 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
 
     // ViewModels
     private val completeProfileViewModel: CompleteProfileViewModel by activityViewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     // Vars
     private var selectedGender: String? = ""
@@ -78,6 +80,11 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
                 }
             }
 
+        }
+
+        sharedViewModel.gender.observe(viewLifecycleOwner){
+            selectedGender = it?.first
+            binding.edTxtGender.text = it?.second
         }
     }
 
@@ -217,8 +224,14 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
         vehicleType.setOnClickListener {
             openDialogVehicleTypes { name, type ->
                 vehicleType.text = name
+                sharedViewModel.setVehicleType(Pair(type,name))
             }
         }
+
+        sharedViewModel.vehicleType.observe(viewLifecycleOwner){
+            vehicleType.text = it?.second
+        }
+
 
         if (isAdded) {
             line.visibility = View.VISIBLE
@@ -244,6 +257,7 @@ class CompleteProfileDriverFragment : BaseFragment<FragmentCompleteProfileDriver
         val dialog = GenderTypeDialog { name, value ->
             binding.edTxtGender.text = name
             selectedGender = value
+            sharedViewModel.setGender(Pair(selectedGender!!,name))
         }
         dialog.isCancelable = false
         dialog.show(requireActivity().supportFragmentManager, "GenderTypes")

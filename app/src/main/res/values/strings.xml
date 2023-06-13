@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BlueRide transportation</string>
+    <string name="app_name">BlueRide Transportation</string>
     <string name="my_deals">My Deals</string>
     <string name="market">Market</string>
     <string name="profile">Profile</string>
@@ -21,7 +21,6 @@
     <string name="blue_ride">Blue ride • now</string>
     <string name="notification">Notification</string>
     <string name="notifications_title">Notifications</string>
-
     <string name="log_out">Log Out</string>
     <string name="help_support"><![CDATA[Help & Support]]></string>
     <string name="edit_profile">Edit Profile</string>
@@ -109,10 +108,12 @@
     <string name="trip">Trip</string>
     <string name="trips">Trips</string>
     <string name="students">Students</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="change_language_title">Change language</string>
     <string name="english">English</string>
     <string name="arabic">Arabic</string>
-
+    <string name="phone_already">The phone number has already been taken.</string>
+    <string name="semester">Semester</string>
+    <string name="weak">Week</string>
+    <string name="month">Month</string>
+    <string name="custom_days">Custom Days</string>
 </resources>

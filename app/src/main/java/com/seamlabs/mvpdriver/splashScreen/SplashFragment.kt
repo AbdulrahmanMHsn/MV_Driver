@@ -10,7 +10,9 @@ import com.bumptech.glide.Glide
 import com.seamlabs.mvpdriver.MainActivity
 import com.seamlabs.mvpdriver.R
 import com.seamlabs.mvpdriver.common.base.BaseFragment
+import com.seamlabs.mvpdriver.common.utility.Navigate
 import com.seamlabs.mvpdriver.common.utility.NavigationHelper
+import com.seamlabs.mvpdriver.common.utility.StopLoading
 import com.seamlabs.mvpdriver.common.utility.UserPreferences
 import com.seamlabs.mvpdriver.databinding.FragmentSplashScreenBinding
 import kotlinx.coroutines.delay

@@ -34,10 +34,19 @@ data class Driver(
     val profileable: Profileable,
     @Nullable
     @SerializedName("image")
-    val image: String?,
+    val image: Image?,
     @Nullable
     @SerializedName("vehicles")
     val vehicles: List<VehicleModel> = emptyList(),
+)
+
+
+data class Image(
+    @SerializedName("id")
+    val id: Int,
+    @Nullable
+    @SerializedName("url")
+    val urlImg: String,
 )
 
 

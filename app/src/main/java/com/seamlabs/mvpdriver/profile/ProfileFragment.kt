@@ -1,11 +1,14 @@
 package com.seamlabs.mvpdriver.profile
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.seamlabs.mvpdriver.BuildConfig
 import com.seamlabs.mvpdriver.MainActivity
 import com.seamlabs.mvpdriver.R
 import com.seamlabs.mvpdriver.common.base.BaseFragment
@@ -72,8 +75,44 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                 R.id.profileFragment,
                 R.id.appSettingFragment)
         }
+
+        binding.editProfileLayout.setOnClickListener {
+            makeToast("Soon")
+        }
+
+        binding.helpAndSupportLayout.setOnClickListener {
+            makeToast("Soon")
+        }
+
+        binding.imgFacebook.setOnClickListener {
+            openUrl(Constant.FACE_BOOK_URL)
+        }
+        binding.imgTwitter.setOnClickListener {
+            openUrl(Constant.TWITTER_URL)
+        }
+        binding.imgInstagram.setOnClickListener {
+            openUrl(Constant.INSTAGRAM_URL)
+        }
+        binding.imgLinkedin.setOnClickListener {
+            openUrl(Constant.LINKED_IN_URL)
+        }
+        binding.imgWebsite.setOnClickListener {
+            if (UserPreferences.getUserLanguage(requireContext())=="ar"){
+                openUrl(Constant.ABOUT_US_URL_AR)
+            }
+            else{
+                openUrl(Constant.ABOUT_US_URL)
+
+            }
+        }
     }
 
+
+    private fun openUrl(url:String){
+        val openURL = Intent(Intent.ACTION_VIEW)
+        openURL.data = Uri.parse(url)
+        startActivity(openURL)
+    }
 
     private fun subscribeData() {
         profileViewModel.profileLData.observe(viewLifecycleOwner) { user ->
@@ -88,12 +127,12 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
         user.profileableType?.let {
             if (user.profileableType == "company_profile") {
                 binding.userNameNewProfile.text = user.profileable.companyName
-                binding.txtVehicleCount.text = user.profileable.vehicleCount
-                binding.userRoleNewProfile.text = getString(R.string.company)
+//                binding.txtVehicleCount.text = user.profileable.vehicleCount
+                binding.txtUserType.text = getString(R.string.company)
             } else {
                 binding.userNameNewProfile.text = user.profileable.fullName
-                binding.txtVehicleCount.text = user.vehicles.size.toString()
-                binding.userRoleNewProfile.text = getString(R.string.driver)
+//                binding.txtVehicleCount.text = user.vehicles.size.toString()
+                binding.txtUserType.text = getString(R.string.driver)
             }
         }
 
@@ -101,11 +140,15 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
             binding.userPhoneIdNewProfile.text = "${user.phoneNumber} | $it"
         }
 
+
         Glide.with(requireContext())
-            .load(user.image)
+            .load(BuildConfig.BASE_IMAGE_URL +user.image?.urlImg)
+            .placeholder(R.drawable.ic_placeholder_profile)
             .circleCrop()
             .error(R.drawable.ic_placeholder_profile)
             .into(binding.profileImage)
     }
 
+
 }
+

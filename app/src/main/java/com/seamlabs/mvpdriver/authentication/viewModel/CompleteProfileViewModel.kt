@@ -2,19 +2,19 @@ package com.seamlabs.mvpdriver.authentication.viewModel
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.google.android.gms.maps.model.LatLng
 import com.seamlabs.mvpdriver.R
 import com.seamlabs.mvpdriver.common.base.BaseViewModel
-import com.seamlabs.mvpdriver.common.utility.Load
-import com.seamlabs.mvpdriver.common.utility.Navigate
-import com.seamlabs.mvpdriver.common.utility.SomethingWentWrong
-import com.seamlabs.mvpdriver.common.utility.StopLoading
+import com.seamlabs.mvpdriver.common.utility.*
 import com.seamlabs.mvpdriver.models.VehicleModel
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 
@@ -74,7 +74,7 @@ class CompleteProfileViewModel(application: Application) : BaseViewModel(applica
         lat: String,
         lng: String,
         image: String = "",
-        radius: Int = 10000,
+        radius: Int = 1000,
     ) {
         enqueueSignal(Load)
 
@@ -84,6 +84,7 @@ class CompleteProfileViewModel(application: Application) : BaseViewModel(applica
                     image, companyName, email, vehicleCount, vehicleType, lat, lng, radius
                 ))
                 if (response.isSuccessful) {
+                    UserPreferences.setLoginState(context, true)
                     enqueueSignal(StopLoading, Navigate.OnSuccessCompleteCompanyProfile)
                 } else {
                     errorMessage = context.getString(R.string.server_error)
@@ -106,7 +107,7 @@ class CompleteProfileViewModel(application: Application) : BaseViewModel(applica
         vehicleType: String,
         lat: String,
         lng: String,
-        radius: Int = 7,
+        radius: Int ,
     ): Array<MultipartBody.Part>? {
 
         //pass it like this
@@ -123,7 +124,7 @@ class CompleteProfileViewModel(application: Application) : BaseViewModel(applica
                     MultipartBody.Part.createFormData("preferred_area_lat", lat),
                     MultipartBody.Part.createFormData("preferred_area_lng", lng),
                     MultipartBody.Part.createFormData("radius", radius.toString()),
-                    MultipartBody.Part.createFormData("image", file.name, requestFile),
+                    MultipartBody.Part.createFormData("profile_image", file.name, requestFile),
                 )
             } else {
                 arrayOf(
@@ -197,21 +198,20 @@ class CompleteProfileViewModel(application: Application) : BaseViewModel(applica
         lat: String,
         lng: String,
         image: String = "",
-        radius: Int = 100000,
+        radius: Int = 1000,
     ) {
         enqueueSignal(Load)
 
-        val vehiclesMap: HashMap<String, Any> = HashMap()
+        val vehiclesMap: MutableMap<String, RequestBody> = HashMap()
+
 
         for ((index, item) in listOfVehicles.withIndex()) {
-            vehiclesMap["vehicles[${index}][id]"] = item.id + 1
-            vehiclesMap["vehicles[${index}][vehicle_type]"] = item.vehicleType!!
-            vehiclesMap["vehicles[${index}][car_brand]"] =
-                item.carBrand
-            vehiclesMap["vehicles[${index}][car_model]"] =
-                item.carModel
-            vehiclesMap["vehicles[${index}][manufacturing_year]"] =
-                item.manufacturingYear
+
+            vehiclesMap["vehicles[${index}][id]"] = createPartFromString("${item.id + 1}")
+            vehiclesMap["vehicles[${index}][vehicle_type]"] = createPartFromString(item.vehicleType!!.toString())
+            vehiclesMap["vehicles[${index}][car_brand]"] = createPartFromString(item.carBrand)
+            vehiclesMap["vehicles[${index}][car_model]"] = createPartFromString(item.carModel)
+            vehiclesMap["vehicles[${index}][manufacturing_year]"] = createPartFromString(item.manufacturingYear)
         }
 
         viewModelScope.launch {
@@ -220,7 +220,8 @@ class CompleteProfileViewModel(application: Application) : BaseViewModel(applica
                     getImageMultiPartIndividual(image, fullName, email, gender, lat, lng, radius),
                     vehiclesMap)
                 if (response.isSuccessful) {
-                    enqueueSignal(StopLoading, Navigate.OnSuccessCompleteCompanyProfile)
+                    UserPreferences.setLoginState(context, true)
+                    enqueueSignal(StopLoading, Navigate.OnSuccessCompleteIndividualProfile)
                 } else {
                     errorMessage = context.getString(R.string.server_error)
                     enqueueSignal(StopLoading, SomethingWentWrong.ConnectionFailure)
@@ -231,6 +232,10 @@ class CompleteProfileViewModel(application: Application) : BaseViewModel(applica
             }
         }
 
+    }
+
+    fun createPartFromString(stringData: String): RequestBody {
+        return stringData.toRequestBody("text/plain".toMediaTypeOrNull())
     }
 
 
@@ -257,7 +262,7 @@ class CompleteProfileViewModel(application: Application) : BaseViewModel(applica
                     MultipartBody.Part.createFormData("preferred_area_lat", lat),
                     MultipartBody.Part.createFormData("preferred_area_lng", lng),
                     MultipartBody.Part.createFormData("radius", radius.toString()),
-                    MultipartBody.Part.createFormData("image", file.name, requestFile)
+                    MultipartBody.Part.createFormData("profile_image", file.name, requestFile)
                 )
             } else {
                 arrayOf(

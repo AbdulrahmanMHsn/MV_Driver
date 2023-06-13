@@ -87,8 +87,8 @@ class MarketRequestFragment : BaseFragment<FragmentMarketRequestBinding>() {
     private fun subscribeData() {
         marketRequestViewModel.marketRequestsLiveData.observe(viewLifecycleOwner) { list ->
             if (list.isNullOrEmpty()) {
-                 binding.layoutEmptyMarkets.emptyMarkets.visibility = View.VISIBLE
-            }else{
+                binding.layoutEmptyMarkets.emptyMarkets.visibility = View.VISIBLE
+            } else {
                 binding.layoutEmptyMarkets.emptyMarkets.visibility = View.GONE
                 marketRequestsAdapter.submitList(list)
             }
@@ -114,10 +114,11 @@ class MarketRequestFragment : BaseFragment<FragmentMarketRequestBinding>() {
         })
     }
 
-    private fun setDataWithinSubmitOfferBottomSheet(trip: TripModel){
+    private fun setDataWithinSubmitOfferBottomSheet(trip: TripModel) {
         submitOfferBottomSheet.state = BottomSheetBehavior.STATE_HALF_EXPANDED
 
-        binding.dialogSubmitOffer.txtNoOfStudents.text = "${(trip.boysCount + trip.girlsCount)} ${getString(R.string.students)}"
+        binding.dialogSubmitOffer.txtNoOfStudents.text =
+            "${(trip.boysCount + trip.girlsCount)} ${getString(R.string.students)}"
 
         binding.dialogSubmitOffer.txtDistanceTrips.visibility = View.GONE
         binding.dialogSubmitOffer.txtDistanceTrips.text = "1.5 KM"
@@ -128,7 +129,8 @@ class MarketRequestFragment : BaseFragment<FragmentMarketRequestBinding>() {
 
         val districtDropOff = trip.pickupAddress.split(",")
         binding.dialogSubmitOffer.txtTitleLocation.text = trip.dropOffAddress
-        binding.dialogSubmitOffer.txtDescLocation.text = "${districtDropOff[districtDropOff.size - 1]}"
+        binding.dialogSubmitOffer.txtDescLocation.text =
+            "${districtDropOff[districtDropOff.size - 1]}"
 
         trip.goTripTime?.let { time ->
             binding.dialogSubmitOffer.txtDateStartRequest.visibility = View.VISIBLE
@@ -167,10 +169,16 @@ class MarketRequestFragment : BaseFragment<FragmentMarketRequestBinding>() {
             if (price.isEmpty()) {
                 binding.dialogSubmitOffer.edTxtValueOffer.error = getString(R.string.empty_field)
             } else {
-                marketRequestViewModel.submitOffer(requireContext(),
-                    trip.id,
-                    price.toInt(),
-                    comment)
+                if (comment.isEmpty()) {
+                    marketRequestViewModel.submitOffer(requireContext(),
+                        trip.id,
+                        price.toInt())
+                } else {
+                    marketRequestViewModel.submitOffer(requireContext(),
+                        trip.id,
+                        price.toInt(),
+                        comment)
+                }
             }
         }
     }

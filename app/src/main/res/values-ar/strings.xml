@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BlueRide transportation</string>
+    <string name="app_name">BlueRide Transportation</string>
     <string name="my_deals">صفقاتي</string>
     <string name="market">طلبات السوق</string>
     <string name="profile">الحساب</string>
@@ -110,7 +110,12 @@
     <string name="trips">رحلة</string>
     <string name="students">طلاب</string>
     <string name="change_language_title">تغيير اللغة</string>
-    <string name="english">English</string>
-    <string name="arabic">Arabic</string>
+    <string name="english">اللغة الانجليزية</string>
+    <string name="arabic">اللغة العربية</string>
+    <string name="phone_already">تم أخذ رقم الهاتف بالفعل.</string>
+    <string name="semester">فصل دراسى كامل</string>
+    <string name="weak">أسبوع</string>
+    <string name="month">شهر</string>
+    <string name="custom_days">حدد يوم مخصص/معين</string>
 
 </resources>

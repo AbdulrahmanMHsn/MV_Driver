@@ -28,6 +28,7 @@ android {
             debuggable true
 
             buildConfigField("String", "BASE_URL", "\"https://development-mvp-backend.blueride.app/api/driver/\"")
+            buildConfigField("String", "BASE_IMAGE_URL", "\"https://development-mvp-backend.blueride.app\"")
 
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 

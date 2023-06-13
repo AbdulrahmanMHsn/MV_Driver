@@ -33,7 +33,7 @@ class ChangeLanguageFragment : BaseFragment<FragmentChangeLanguageBinding>() {
     private fun initView() {
         (activity as MainActivity).hideBottomNav()
         binding.appBarChangeLanguage.setTitleString(getString(R.string.change_language_title))
-        binding.appBarChangeLanguage.useBackButton(true){
+        binding.appBarChangeLanguage.useBackButton(true) {
             findNavController().popBackStack()
         }
         if (UserPreferences.getUserLanguage(requireContext()) == Constant.ENGLISH) {
@@ -98,8 +98,7 @@ class ChangeLanguageFragment : BaseFragment<FragmentChangeLanguageBinding>() {
     private fun changeLanguage(config: Configuration) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             requireActivity().baseContext.createConfigurationContext(config)
-        }
-        else{
+        } else {
             requireActivity().baseContext.resources.updateConfiguration(
                 config,
                 requireActivity().baseContext.resources.displayMetrics
@@ -110,7 +109,13 @@ class ChangeLanguageFragment : BaseFragment<FragmentChangeLanguageBinding>() {
 
 }
 
-object Constant{
-        const val ARABIC = "ar"
-        const val ENGLISH = "en"
+object Constant {
+    const val ARABIC = "ar"
+    const val ENGLISH = "en"
+    const val FACE_BOOK_URL = "https://www.facebook.com/BlueRideSA"
+    const val TWITTER_URL = "https://twitter.com/Blueridesa"
+    const val LINKED_IN_URL = "https://www.linkedin.com/company/blueridetech/"
+    const val INSTAGRAM_URL = "https://www.instagram.com/blueride.co/"
+    const val ABOUT_US_URL_AR = "https://www.blueride.co/"
+    const val ABOUT_US_URL = "https://www.blueride.co/home"
 }

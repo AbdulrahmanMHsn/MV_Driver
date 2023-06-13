@@ -23,7 +23,6 @@ class AuthViewModel(application: Application) : BaseViewModel(application) {
                 if (response.isSuccessful) {
                     if (response.body()!!.driver.status != "UNCOMPLETED") {
                         UserPreferences.setLoginState(context, true)
-                        UserPreferences.setLoginState(context, true)
                         enqueueSignal(StopLoading, Navigate.SuccessLoginNavigate)
                     } else {
                         enqueueSignal(StopLoading, Navigate.ProfileUncompleted)
@@ -57,12 +56,12 @@ class AuthViewModel(application: Application) : BaseViewModel(application) {
             try {
                 val response = apiServices.register(countryCode, phoneNumber, password)
                 if (response.isSuccessful) {
+                    UserPreferences.storeToken(context, response.body()!!.token)
                     enqueueSignal(StopLoading, Navigate.SuccessRegisterNavigate)
                 } else {
                     if (response.code() == 422) {
                         try {
-                            errorMessage = parseErrorToString(response.message())
-                            enqueueSignal(StopLoading,SomethingWentWrong.ConnectionFailure)
+                            enqueueSignal(StopLoading,SomethingWentWrong.ConnectionFailure,SomethingWentWrong.BadCredentials)
                         } catch (e: JSONException) {
                             e.printStackTrace()
                         } catch (e: IOException) {

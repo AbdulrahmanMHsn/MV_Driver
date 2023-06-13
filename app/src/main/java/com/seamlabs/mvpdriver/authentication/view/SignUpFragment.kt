@@ -28,6 +28,10 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
             is Navigate.SuccessRegisterNavigate -> {
                 NavigationHelper.navigate(findNavController(),R.id.signUpFragment,R.id.chooseUserTypeFragment)
             }
+            is SomethingWentWrong.BadCredentials -> {
+                binding.wrongCredentialsSignUp.text = getString(R.string.phone_already)
+                binding.wrongCredentialsSignUp.visibility = View.VISIBLE
+            }
             else->{}
 
         }
@@ -86,7 +90,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>() {
         }
     }
 
-    fun isValidPassword(password: String): Boolean {
+    private fun isValidPassword(password: String): Boolean {
         val pattern: Pattern =
             Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}\$")
         val matcher: Matcher = pattern.matcher(password)

@@ -12,6 +12,7 @@ import com.seamlabs.mvpdriver.common.utility.customFormatDate
 import com.seamlabs.mvpdriver.common.utility.getDifferenceBetweenDates
 import com.seamlabs.mvpdriver.databinding.AdapterItemMyDealBinding
 import com.seamlabs.mvpdriver.models.TripModel
+import com.seamlabs.mvpdriver.models.TripPeriod
 import com.seamlabs.mvpdriver.models.VehicleType
 
 
@@ -88,8 +89,16 @@ class MyDealsAdapter(private val onClickItem:(TripModel)->Unit) :
 //            }
 
 
-            context.getDifferenceBetweenDates(item.customStartDate, item.customEndDate) {
-                txtNoOfDays.text = "$it ${holder.itemView.context.getString(R.string.days)}"
+//            context.getDifferenceBetweenDates(item.customStartDate, item.customEndDate) {
+//                txtNoOfDays.text = "$it ${holder.itemView.context.getString(R.string.days)}"
+//            }
+
+            when (item.tripPeriod) {
+                TripPeriod.WEEK.name -> txtNoOfDays.text = context.getString(R.string.weak)
+                TripPeriod.MONTH.name -> txtNoOfDays.text =
+                    context.getString(R.string.month)
+                TripPeriod.SEMESTER.name -> txtNoOfDays.text = context.getString(R.string.semester)
+                TripPeriod.CUSTOM_DAYS.name -> txtNoOfDays.text = context.getString(R.string.custom_days)
             }
 
             when (item.vehicleType) {

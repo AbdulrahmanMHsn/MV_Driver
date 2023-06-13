@@ -2,6 +2,7 @@ package com.seamlabs.mvpdriver.myDeal
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -34,6 +35,7 @@ class DealsViewModel(app: Application) : BaseViewModel(app) {
                 upComingDealsList = response.body()?.deals!!.upcomingDeals
                 pastDealsList = response.body()?.deals!!.pastDeals
             } else {
+                Log.i("TAGTAGTAG", "getMarketRequests: ${response.message()}")
                 errorMessage = context.getString(R.string.server_error)
                 enqueueSignal(StopLoading, SomethingWentWrong.ConnectionFailure)
             }

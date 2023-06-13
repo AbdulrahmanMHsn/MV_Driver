@@ -48,7 +48,7 @@ interface ApiServices {
     @POST("complete_individual_profile")
     suspend fun completeIndividualProfile(
         @Part multiPart: Array<MultipartBody.Part>? = null,
-        @PartMap vehicles: HashMap<String, Any>,
+        @PartMap vehicles: MutableMap<String, RequestBody>,
     ): Response<UserModel>
 
 
@@ -78,7 +78,14 @@ interface ApiServices {
     suspend fun submitOffer(
         @Path("id") tripId:Int,
         @Field("price") price: Int,
-        @Field("driver_comment") driverComment:String,
+        @Field("driver_comment") driverComment:String = "test",
+    ): Response<Void>
+
+    @POST("trip_request/{id}/submit_offer")
+    @FormUrlEncoded
+    suspend fun submitOffer(
+        @Path("id") tripId:Int,
+        @Field("price") price: Int,
     ): Response<Void>
 
 

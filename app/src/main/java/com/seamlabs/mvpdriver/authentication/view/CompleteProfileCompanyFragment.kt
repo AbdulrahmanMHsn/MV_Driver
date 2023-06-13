@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.seamlabs.mvpdriver.MainActivity
 import com.seamlabs.mvpdriver.R
 import com.seamlabs.mvpdriver.authentication.viewModel.CompleteProfileViewModel
+import com.seamlabs.mvpdriver.authentication.viewModel.SharedViewModel
 import com.seamlabs.mvpdriver.common.base.BaseFragment
 import com.seamlabs.mvpdriver.common.base.BaseViewModel
 import com.seamlabs.mvpdriver.common.utility.*
@@ -23,6 +24,7 @@ class CompleteProfileCompanyFragment : BaseFragment<FragmentCompleteProfileCompa
 
     // ViewModel
     private val completeProfileViewModel: CompleteProfileViewModel by activityViewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
 
     // Vars
@@ -87,7 +89,11 @@ class CompleteProfileCompanyFragment : BaseFragment<FragmentCompleteProfileCompa
 
                 }
             }
+        }
 
+        sharedViewModel.vehicleType.observe(viewLifecycleOwner){
+            typeOfVehicle = it?.first
+            binding.edTxtVehicleType.text = it?.second
         }
     }
 
@@ -160,6 +166,8 @@ class CompleteProfileCompanyFragment : BaseFragment<FragmentCompleteProfileCompa
         val dialog = SelectVehicleTypeDialog(listOfTypes) {
             typeOfVehicle = it.type
             binding.edTxtVehicleType.text = it.name
+            sharedViewModel.setVehicleType(Pair(typeOfVehicle!!,it.name))
+
         }
         dialog.isCancelable = false
         dialog.show(requireActivity().supportFragmentManager, "VehicleTypes")

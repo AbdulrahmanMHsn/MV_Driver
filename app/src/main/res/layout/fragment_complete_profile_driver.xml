@@ -173,6 +173,7 @@
                 android:layout_marginTop="@dimen/space_4x"
                 android:background="@drawable/bg_btn_add_vehicle"
                 android:elevation="0dp"
+                android:visibility="gone"
                 android:text="@string/add_vehicle"
                 android:textColor="@color/colorAccent"
                 app:layout_constraintStart_toStartOf="parent"

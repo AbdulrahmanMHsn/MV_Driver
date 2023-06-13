@@ -13,6 +13,7 @@ import com.seamlabs.mvpdriver.common.utility.getDifferenceBetweenDates
 import com.seamlabs.mvpdriver.common.utility.relativeTime
 import com.seamlabs.mvpdriver.databinding.AdapterItemMarketRequestBinding
 import com.seamlabs.mvpdriver.models.TripModel
+import com.seamlabs.mvpdriver.models.TripPeriod
 import com.seamlabs.mvpdriver.models.VehicleType
 
 
@@ -91,8 +92,17 @@ class MarketRequestsAdapter(private val callbackClickCard: (TripModel) -> Unit) 
 //            }
 
 
-            context.getDifferenceBetweenDates(item.customStartDate, item.customEndDate) {
-                txtNoOfDays.text = "$it ${holder.itemView.context.getString(R.string.days)}"
+
+//            context.getDifferenceBetweenDates(item.customStartDate, item.customEndDate) {
+//                txtNoOfDays.text = "$it ${holder.itemView.context.getString(R.string.days)}"
+//            }
+
+            when (item.tripPeriod) {
+                TripPeriod.WEEK.name -> txtNoOfDays.text = context.getString(R.string.weak)
+                TripPeriod.MONTH.name -> txtNoOfDays.text =
+                    context.getString(R.string.month)
+                TripPeriod.SEMESTER.name -> txtNoOfDays.text = context.getString(R.string.semester)
+                TripPeriod.CUSTOM_DAYS.name -> txtNoOfDays.text = context.getString(R.string.custom_days)
             }
 
             when (item.vehicleType) {
@@ -102,7 +112,7 @@ class MarketRequestsAdapter(private val callbackClickCard: (TripModel) -> Unit) 
                 VehicleType.CAR.name -> txtTypeCar.text = context.getString(R.string.personal_car)
             }
 
-            context.relativeTime(item.createdAt) {
+            context.relativeTime(item.updatedAt) {
                 txtTimeCreatedRequest.text = it
             }
 

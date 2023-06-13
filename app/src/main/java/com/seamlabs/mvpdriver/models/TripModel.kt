@@ -16,7 +16,7 @@ data class TripModel(
     @SerializedName("created_at")
     val createdAt: String,
     @SerializedName("custom_end_date")
-    val customEndDate: String,
+    val customEndDate: String?,
     @SerializedName("custom_start_date")
     val customStartDate: String,
     @SerializedName("driver_type")
